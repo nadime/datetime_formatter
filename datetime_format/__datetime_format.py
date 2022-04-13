@@ -1,6 +1,6 @@
-import attr
-import datetime
-import dateutil.tz
+import attr  # type: ignore
+import datetime  # type: ignore
+import dateutil.tz  # type: ignore
 from holidays.holiday_base import HolidayBase
 import re
 from string import Formatter
@@ -12,9 +12,7 @@ from typing import (
     Union,
 )
 
-from .__datetime import (
-    _DateTime
-)
+from .__datetime import _DateTime
 
 from .__formats import (
     _PARSE_DT_REGEX,
@@ -38,7 +36,8 @@ __all__ = [
 
 
 class SupportsToDateTime(Protocol):
-    def to_datetime(self) -> datetime.datetime: ...  # pragma: no cover
+    def to_datetime(self) -> datetime.datetime:
+        ...  # pragma: no cover
 
 
 def dtformat(
@@ -51,14 +50,16 @@ def dtformat(
         SupportsToDateTime,
     ],
     fmtstr: str,
-    output_tz: Optional[Union[str, datetime.timezone]] = None,
+    output_tz: Optional[Union[str, datetime.tzinfo]] = None,
     holidays: Optional[Union[Dict[str, str], HolidayBase]] = None,
 ) -> str:
     if fmtstr is None:
         return None
     if not fmtstr.startswith("%") and not fmtstr.endswith("%"):
         fmtstr = f"%{fmtstr}%"
-    dtf = DateTimeFormatter(dt, holidays=holidays)
+    # mypy complains about kw use in the below, which is weird, but best
+    # to skip
+    dtf = DateTimeFormatter(dt, holidays=holidays)  # type:ignore
     if isinstance(output_tz, str):
         orig_tz = output_tz
         output_tz = dateutil.tz.gettz(output_tz)
@@ -97,10 +98,8 @@ class DateTimeFormatter(Formatter):
     dt: _DateTime = attr.ib(converter=_DateTime)
     holidays: Optional[HolidayBase] = None
 
-
     def __call__(self, *args, **kwargs):
         return self.format(*args, **kwargs)
-
 
     def format(self, s, *args, **kwargs):
         # magic to make sure %%-wrapped are recognized
@@ -137,11 +136,14 @@ class DateTimeFormatter(Formatter):
                 kwargs.update({fld: stfmt(use_dt)})
         return super().format(s, *args, **kwargs)
 
+
 def _get_dir(d):
     return _SUPPORTED_TRANSLATION_DIRECTIONS[d]
 
+
 def _get_size(s):
     return _SUPPORTED_TRANSLATION_SIZES[s]
+
 
 def _translate_dt(dt, translation, holidays):
     if translation is None:
@@ -160,4 +162,4 @@ def _translate_dt(dt, translation, holidays):
             f"Error decoding translation: {translation}, error was:\n"
             f"KeyError: {str(ke)}"
         )
-    return dt.translate(size, num*dir, holidays=holidays)
+    return dt.translate(size, num * dir, holidays=holidays)

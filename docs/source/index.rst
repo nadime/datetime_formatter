@@ -1,5 +1,5 @@
-.. python-holidays documentation master file, created by
-   sphinx-quickstart on Sat Nov 27 12:00:54 2021.
+.. datetime_format documentation master file, created by
+   sphinx-quickstart on Wed Apr 12 11:36:02 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root ``toctree`` directive.
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Additional Examples &mdash; holidays  documentation</title>
+  <title>Additional Examples &mdash; datetime_format  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,7 +18,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Contributing" href="contributing.html" />
-    <link rel="prev" title="python-holidays" href="index.html" /> 
+    <link rel="prev" title="datetime_format" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -26,10 +26,10 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> holidays
+            <a href="index.html" class="icon icon-home"> datetime_format
           </a>
               <div class="version">
-                0.14
+                0.0.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -44,12 +44,8 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Additional Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#simplest-example-possible">Simplest example possible</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#expand-parameter">Expand parameter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#observed-parameter">Observed parameter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#date-from-holiday-name">Date from holiday name</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#additions">Additions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#creating-custom-holidays-or-augmenting-existing-ones-with-private-ones">Creating custom holidays (or augmenting existing ones with private ones)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#other-ways-to-specify-the-country">Other ways to specify the country</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#all-output-formats-styles">All Output Formats/Styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#datetime-translations">Datetime Translations</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
@@ -64,7 +60,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">holidays</a>
+          <a href="index.html">datetime_format</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -85,227 +81,167 @@
 <h1>Additional Examples<a class="headerlink" href="#additional-examples" title="Permalink to this headline"></a></h1>
 <div class="section" id="simplest-example-possible">
 <h2>Simplest example possible<a class="headerlink" href="#simplest-example-possible" title="Permalink to this headline"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">holidays</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">holidays</span><span class="o">.</span><span class="n">US</span><span class="p">()</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">in</span> <span class="n">holidays</span><span class="o">.</span><span class="n">US</span><span class="p">()</span>
-<span class="go">False</span>
-</pre></div>
-</div>
-<div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">Don’t do this! It is not efficient because it is initializing a new
-Holiday object and generating a list of all the holidays in 2014 during each
-comparison.</p>
-</div>
-<p>It is more efficient to create the object only once:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span> <span class="o">=</span> <span class="n">holidays</span><span class="o">.</span><span class="n">US</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">us_holidays</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">in</span> <span class="n">us_holidays</span>
-<span class="go">False</span>
-</pre></div>
-</div>
-<p>You can use the <code class="xref py py-func docutils literal notranslate"><span class="pre">country_holidays()</span></code> function to create the object using
-a string with the country code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span> <span class="o">=</span> <span class="n">holidays</span><span class="o">.</span><span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Let’s print out the holidays in 2014 specific to California, USA:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">date</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">holidays</span><span class="o">.</span><span class="n">US</span><span class="p">(</span><span class="n">subdiv</span><span class="o">=</span><span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="n">years</span><span class="o">=</span><span class="mi">2014</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-<span class="go">2014-01-01 New Year&#39;s Day</span>
-<span class="go">2014-01-20 Martin Luther King Jr. Day</span>
-<span class="go">2014-02-15 Susan B. Anthony Day</span>
-<span class="go">2014-02-17 Washington&#39;s Birthday</span>
-<span class="go">2014-03-31 César Chávez Day</span>
-<span class="go">2014-05-26 Memorial Day</span>
-<span class="go">2014-07-04 Independence Day</span>
-<span class="go">2014-09-01 Labor Day</span>
-<span class="go">2014-10-13 Columbus Day</span>
-<span class="go">2014-11-11 Veterans Day</span>
-<span class="go">2014-11-27 Thanksgiving</span>
-<span class="go">2014-12-25 Christmas Day</span>
-</pre></div>
-</div>
-<p>So far we’ve only checked holidays in 2014 so that’s the only year the Holidays
-object has generated:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span><span class="o">.</span><span class="n">years</span>
-<span class="go">set([2014])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">us_holidays</span><span class="p">)</span>
-<span class="go">10</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">time</span>
+<span class="go"> &gt;&gt;&gt; from datetime_format import dtfmt, DateTimeFormatter</span>
+<span class="go"> &gt;&gt;&gt; from dateutil.tz import gettz</span>
+<span class="go"> &gt;&gt;&gt; import holidays</span>
+<span class="go"> &gt;&gt;&gt;</span>
+<span class="go"> &gt;&gt;&gt; dtfmt(20050301, &quot;YMD&quot;)</span>
+<span class="go"> &#39;20050301&#39;</span>
+<span class="go"> &gt;&gt;&gt; dtfmt(20050301, &quot;HHMMSS&quot;)</span>
+<span class="go"> &#39;00:00:00&#39;</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="expand-parameter">
-<h2>Expand parameter<a class="headerlink" href="#expand-parameter" title="Permalink to this headline"></a></h2>
-<p>Because by default the <code class="xref py py-attr docutils literal notranslate"><span class="pre">expand</span></code> parameter is <code class="docutils literal notranslate"><span class="pre">True</span></code> the Holiday
-object will calculate and add holidays for other years when they are required:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">us_holidays</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span><span class="o">.</span><span class="n">years</span>
-<span class="go">set([2013, 2014])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">us_holidays</span><span class="p">)</span>
-<span class="go">20</span>
-</pre></div>
-</div>
-<p>If we change the <code class="xref py py-attr docutils literal notranslate"><span class="pre">expand</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">False</span></code> the Holiday object
-will no longer add holidays from new years:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span><span class="o">.</span><span class="n">expand</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">us_holidays</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">us</span><span class="o">.</span><span class="n">holidays</span><span class="o">.</span><span class="n">expand</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">us_holidays</span>
-<span class="go">True</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="observed-parameter">
-<h2>Observed parameter<a class="headerlink" href="#observed-parameter" title="Permalink to this headline"></a></h2>
-<p>January 1st, 2012 fell on a Sunday so the statutory holiday was observed on the
-2nd. By default the <code class="xref py py-attr docutils literal notranslate"><span class="pre">observed</span></code> param is <code class="docutils literal notranslate"><span class="pre">True</span></code> so the holiday list
-will include January 2nd, 2012 as a holiday:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">us_holidays</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span><span class="p">[</span><span class="n">date</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
-<span class="go">&quot;New Year&#39;s Day&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">in</span> <span class="n">us_holidays</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2012</span> <span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="go">&quot;New Year&#39;s Day (Observed)&quot;</span>
-</pre></div>
-</div>
-<p>The values of <code class="xref py py-attr docutils literal notranslate"><span class="pre">observed</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">expand</span></code> can be changed on the
-fly and the holiday list will be adjusted accordingly:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span><span class="o">.</span><span class="n">observed</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">in</span> <span class="n">us_holidays</span>
-<span class="go">False</span>
-<span class="go">us_holidays.observed = True</span>
-<span class="go">&gt;&gt; date(2012, 1, 2) in us_holidays</span>
-<span class="go">True</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="date-from-holiday-name">
-<h2>Date from holiday name<a class="headerlink" href="#date-from-holiday-name" title="Permalink to this headline"></a></h2>
-<p>Holidays can be retrieved using their name too. <code class="xref py py-meth docutils literal notranslate"><span class="pre">get_named()</span></code>
-receives a string and returns a list of holidays matching it (even partially,
-with case insensitive check):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span> <span class="o">=</span> <span class="n">holidays</span><span class="o">.</span><span class="n">UnitedStates</span><span class="p">(</span><span class="n">years</span><span class="o">=</span><span class="mi">2020</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span><span class="o">.</span><span class="n">get_named</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">)</span>
-<span class="go">[datetime.date(2020, 1, 1), datetime.date(2020, 1, 20),</span>
-<span class="go">datetime.date(2020, 2, 17), datetime.date(2020, 5, 25),</span>
-<span class="go">datetime.date(2020, 7, 4), datetime.date(2020, 7, 3),</span>
-<span class="go">datetime.date(2020, 9, 7), datetime.date(2020, 10, 12),</span>
-<span class="go">datetime.date(2020, 11, 11), datetime.date(2020, 12, 25)]</span>
+<div class="section" id="all-output-formats-styles">
+<h2>All Output Formats/Styles<a class="headerlink" href="#all-output-formats-styles" title="Permalink to this headline"></a></h2>
+<p>Here is a code-built list of all of the possible output formats:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime_format.__formats</span> <span class="kn">import</span> <span class="n">_SUPPORTED_DATETIME_OUTPUT_FORMATS</span>
+<span class="go"> &gt;&gt;&gt;</span>
+<span class="go"> &gt;&gt;&gt; dt = datetime(2022, 4, 12, 9, 30, 0, 0, tzinfo=gettz(&quot;EDT&quot;))</span>
+<span class="go"> &gt;&gt;&gt; for k in _SUPPORTED_DATETIME_OUTPUT_FORMATS.keys():</span>
+<span class="go"> ...     print(f&quot;{k}:{&#39; &#39;*(15-len(k))}{dtfmt(dt, k)}&quot;)</span>
+<span class="go"> ...</span>
+<span class="go"> DATE:           2022-04-12</span>
+<span class="go"> DATETIME:       2022-04-12 09:30:00</span>
+<span class="go"> USDATE:         04/12/22</span>
+<span class="go"> USDATETIME:     04/12/22 09:30:00</span>
+<span class="go"> TIME:           09:30:00</span>
+<span class="go"> YEAR:           2022</span>
+<span class="go"> YMD:            20220412</span>
+<span class="go"> YYYYMM:         202204</span>
+<span class="go"> MMYYYY:         042022</span>
+<span class="go"> YYMM:           2204</span>
+<span class="go"> MMYY:           0422</span>
+<span class="go"> YYYYMMDD:       20220412</span>
+<span class="go"> MMDDYY:         041222</span>
+<span class="go"> MMDDYYYY:       04122022</span>
+<span class="go"> ISODATE:        2022-04-12</span>
+<span class="go"> ISODATETIME:    2022-04-12T09:30:00-04:00</span>
+<span class="go"> MONTH:          04</span>
+<span class="go"> MON:            04</span>
+<span class="go"> MONTHABV:       Apr</span>
+<span class="go"> MONTHNAME:      April</span>
+<span class="go"> DAYABV:         Tue</span>
+<span class="go"> DAYNAME:        Tuesday</span>
+<span class="go"> DAYNUM:         2</span>
+<span class="go"> DAYYEAR:        102</span>
+<span class="go"> TZOFF:          -0400</span>
+<span class="go"> TZNAME:         EDT</span>
+<span class="go"> WEEKNUM:        15</span>
+<span class="go"> DAY:            12</span>
+<span class="go"> DD:             12</span>
+<span class="go"> MM:             04</span>
+<span class="go"> YY:             22</span>
+<span class="go"> YYYY:           2022</span>
+<span class="go"> LOCALE_DT:      Tue Apr 12 09:30:00 2022</span>
+<span class="go"> HHMMSS:         09:30:00</span>
+<span class="go"> HHMMSSZZ:       09:30:00.000000</span>
+<span class="go"> AMPM:           AM</span>
+<span class="go"> HH:             09</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="additions">
-<h2>Additions<a class="headerlink" href="#additions" title="Permalink to this headline"></a></h2>
-<p>Holiday objects can be added together and the resulting object will generate
-the holidays from all of the initial objects:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">north_america</span> <span class="o">=</span> <span class="n">holidays</span><span class="o">.</span><span class="n">CA</span><span class="p">()</span> <span class="o">+</span> <span class="n">holidays</span><span class="o">.</span><span class="n">US</span><span class="p">()</span> <span class="o">+</span> <span class="n">holidays</span><span class="o">.</span><span class="n">MX</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">north_america</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;2014-07-01&#39;</span><span class="p">)</span>
-<span class="go">&quot;Canada Day&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">north_america</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;2014-07-04&#39;</span><span class="p">)</span>
-<span class="go">&quot;Independence Day&quot;</span>
+<div class="section" id="datetime-translations">
+<h2>Datetime Translations<a class="headerlink" href="#datetime-translations" title="Permalink to this headline"></a></h2>
+<p>You can also translate these dates inline, inside your string formatting.  Why
+would you do this, rather than translating in your Python code (using
+<code class="docutils literal notranslate"><span class="pre">timedelta</span></code> or <code class="docutils literal notranslate"><span class="pre">dateutil.relativedelta</span></code>)?  One example might be if you
+write configuration files read by Python (and potentially other interpreters)
+in something like YAML and you want your configuration to be descriptive given
+a starting datetime. Or if you want to run a tool with command-line parameters
+involving dates without having to jump through hoops by translating multiple
+dates as you invoke your command.</p>
+<p>Here’s a code-generated list of moving 2 “units” away from our date above,
+in both directions (<code class="docutils literal notranslate"><span class="pre">-</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">+</span></code>), for every possible unit.  The choice to
+move “2” units is, of course, arbitrary - any whole number (integer &gt;= 0) is
+allowed.  Negative integers are not allowed simply because we support “minus”,
+so there is no need to also support negative unit moves – that would just
+make our syntax clunky.</p>
+<p>Below you can see every translation possible “2” units away from our existing
+<code class="docutils literal notranslate"><span class="pre">datetime</span></code> from above:</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+<span class="go"> &#39;2022-04-12T09:30:00-04:00&#39;</span>
 </pre></div>
 </div>
-<p>The other form of addition is also available:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">north_america</span> <span class="o">=</span> <span class="n">holidays</span><span class="o">.</span><span class="n">CA</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">north_america</span> <span class="o">+=</span> <span class="n">holidays</span><span class="o">.</span><span class="n">US</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">north_america</span> <span class="o">+=</span> <span class="n">holidays</span><span class="o">.</span><span class="n">MX</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">north_america</span><span class="o">.</span><span class="n">country</span>
-<span class="go">[&#39;CA&#39;, &#39;US&#39;, &#39;MX&#39;]</span>
+<p>All possible translations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime_format.__formats</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="go"> ...     _SUPPORTED_TRANSLATION_DIRECTIONS,</span>
+<span class="go"> ...     _SUPPORTED_TRANSLATION_SIZES,</span>
+<span class="go"> ... )</span>
+<span class="go"> &gt;&gt;&gt; from itertools import product</span>
+<span class="go"> &gt;&gt;&gt; for (d,s) in product(_SUPPORTED_TRANSLATION_DIRECTIONS, _SUPPORTED_TRANSLATION_SIZES):</span>
+<span class="go"> ...     print(f&quot;{d}2{s}:{&#39; &#39;*8}{dtfmt(dt, f&#39;ISODATETIME-{d}2{s}&#39;)}&quot;)</span>
+<span class="go"> ...</span>
+<span class="go"> M2Y:        2020-04-12T09:30:00-04:00</span>
+<span class="go"> M2m:        2022-02-12T09:30:00-05:00</span>
+<span class="go"> M2D:        2022-04-10T09:30:00-04:00</span>
+<span class="go"> M2W:        2022-03-29T09:30:00-04:00</span>
+<span class="go"> M2H:        2022-04-12T07:30:00-04:00</span>
+<span class="go"> M2M:        2022-04-12T09:28:00-04:00</span>
+<span class="go"> M2S:        2022-04-12T09:29:58-04:00</span>
+<span class="go"> M2Z:        2022-04-12T09:29:59.999998-04:00</span>
+<span class="go"> M2B:        2022-04-08T09:30:00-04:00</span>
+<span class="go"> M2F:        2022-03-29T09:30:00-04:00</span>
+<span class="go"> M2P:        2022-02-11T09:30:00-05:00</span>
+<span class="go"> M2K:        2020-04-10T09:30:00-04:00</span>
+<span class="go"> P2Y:        2024-04-12T09:30:00-04:00</span>
+<span class="go"> P2m:        2022-06-12T09:30:00-04:00</span>
+<span class="go"> P2D:        2022-04-14T09:30:00-04:00</span>
+<span class="go"> P2W:        2022-04-26T09:30:00-04:00</span>
+<span class="go"> P2H:        2022-04-12T11:30:00-04:00</span>
+<span class="go"> P2M:        2022-04-12T09:32:00-04:00</span>
+<span class="go"> P2S:        2022-04-12T09:30:02-04:00</span>
+<span class="go"> P2Z:        2022-04-12T09:30:00.000002-04:00</span>
+<span class="go"> P2B:        2022-04-14T09:30:00-04:00</span>
+<span class="go"> P2F:        2022-04-26T09:30:00-04:00</span>
+<span class="go"> P2P:        2022-06-13T09:30:00-04:00</span>
+<span class="go"> P2K:        2024-04-12T09:30:00-04:00</span>
+<span class="go"> m2Y:        2020-04-12T09:30:00-04:00</span>
+<span class="go"> m2m:        2022-02-12T09:30:00-05:00</span>
+<span class="go"> m2D:        2022-04-10T09:30:00-04:00</span>
+<span class="go"> m2W:        2022-03-29T09:30:00-04:00</span>
+<span class="go"> m2H:        2022-04-12T07:30:00-04:00</span>
+<span class="go"> m2M:        2022-04-12T09:28:00-04:00</span>
+<span class="go"> m2S:        2022-04-12T09:29:58-04:00</span>
+<span class="go"> m2Z:        2022-04-12T09:29:59.999998-04:00</span>
+<span class="go"> m2B:        2022-04-08T09:30:00-04:00</span>
+<span class="go"> m2F:        2022-03-29T09:30:00-04:00</span>
+<span class="go"> m2P:        2022-02-11T09:30:00-05:00</span>
+<span class="go"> m2K:        2020-04-10T09:30:00-04:00</span>
+<span class="go"> p2Y:        2024-04-12T09:30:00-04:00</span>
+<span class="go"> p2m:        2022-06-12T09:30:00-04:00</span>
+<span class="go"> p2D:        2022-04-14T09:30:00-04:00</span>
+<span class="go"> p2W:        2022-04-26T09:30:00-04:00</span>
+<span class="go"> p2H:        2022-04-12T11:30:00-04:00</span>
+<span class="go"> p2M:        2022-04-12T09:32:00-04:00</span>
+<span class="go"> p2S:        2022-04-12T09:30:02-04:00</span>
+<span class="go"> p2Z:        2022-04-12T09:30:00.000002-04:00</span>
+<span class="go"> p2B:        2022-04-14T09:30:00-04:00</span>
+<span class="go"> p2F:        2022-04-26T09:30:00-04:00</span>
+<span class="go"> p2P:        2022-06-13T09:30:00-04:00</span>
+<span class="go"> p2K:        2024-04-12T09:30:00-04:00</span>
 </pre></div>
 </div>
-<p>We can even get a set of holidays that include all the subdivision-specific
-holidays using the built-in <code class="xref py py-func docutils literal notranslate"><span class="pre">sum()</span></code> function:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">holidays</span><span class="o">.</span><span class="n">CA</span><span class="p">(</span><span class="n">subdiv</span><span class="o">=</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">holidays</span><span class="o">.</span><span class="n">CA</span><span class="o">.</span><span class="n">subdivisions</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">subdiv</span>
-<span class="go">[&#39;AB&#39;, &#39;BC&#39;, &#39;MB&#39;, &#39;NB&#39;, &#39;NL&#39;, &#39;NS&#39;, &#39;NT&#39;, &#39;NU&#39;, &#39;ON&#39;, &#39;PE&#39;, &#39;QC&#39;, &#39;SK&#39;,</span>
-<span class="go"> &#39;YU&#39;]</span>
+<p>You can also specify <code class="docutils literal notranslate"><span class="pre">holidays</span></code> to skip using
+the <a class="reference external" href="https://pypi.org/project/holidays" rel="noopener noreferrer" target="_blank">holidays</a> module.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">holidays</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># day before xmas -&gt; day after xmas - 20201224=Thu</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dtfmt</span><span class="p">(</span><span class="mi">20201224</span><span class="p">,</span> <span class="s2">&quot;YMD-P1D&quot;</span><span class="p">,</span> <span class="n">holidays</span><span class="o">=</span><span class="n">holidays</span><span class="o">.</span><span class="n">US</span><span class="p">())</span>
+<span class="go">&#39;20201226&#39;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="creating-custom-holidays-or-augmenting-existing-ones-with-private-ones">
-<h2>Creating custom holidays (or augmenting existing ones with private ones)<a class="headerlink" href="#creating-custom-holidays-or-augmenting-existing-ones-with-private-ones" title="Permalink to this headline"></a></h2>
-<p>Sometimes we may not be able to use the official federal statutory
-holiday list in our code. Let’s pretend we work for a company that
-does not include Columbus Day as a statutory holiday but does include
-“Ninja Turtle Day” on July 13th. We can create a new class that inherits
-the US and the only method we need to override is <code class="xref py py-meth docutils literal notranslate"><span class="pre">_populate()</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">CorporateHolidays</span><span class="p">(</span><span class="n">holidays</span><span class="o">.</span><span class="n">US</span><span class="p">):</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="k">def</span> <span class="nf">_populate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
-<span class="gp">&gt;&gt;&gt; </span>        <span class="c1"># Populate the holiday list with the default US holidays</span>
-<span class="gp">&gt;&gt;&gt; </span>        <span class="n">holidays</span><span class="o">.</span><span class="n">US</span><span class="o">.</span><span class="n">_populate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span>        <span class="c1"># Remove Columbus Day</span>
-<span class="gp">&gt;&gt;&gt; </span>        <span class="bp">self</span><span class="o">.</span><span class="n">pop_named</span><span class="p">(</span><span class="s2">&quot;Columbus Day&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span>        <span class="c1"># Add Ninja Turtle Day</span>
-<span class="gp">&gt;&gt;&gt; </span>        <span class="bp">self</span><span class="p">[</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">13</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;Ninja Turtle Day&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span> <span class="ow">in</span> <span class="n">Holidays</span><span class="p">(</span><span class="n">country</span><span class="o">=</span><span class="s2">&quot;US&quot;</span><span class="p">)</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span> <span class="ow">in</span> <span class="n">CorporateHolidays</span><span class="p">(</span><span class="n">country</span><span class="o">=</span><span class="s2">&quot;US&quot;</span><span class="p">)</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span> <span class="ow">in</span> <span class="n">Holidays</span><span class="p">(</span><span class="n">country</span><span class="o">=</span><span class="s2">&quot;US&quot;</span><span class="p">)</span>
-<span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">date</span><span class="p">(</span><span class="mi">2014</span> <span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span> <span class="ow">in</span> <span class="n">CorporateHolidays</span><span class="p">(</span><span class="n">country</span><span class="o">=</span><span class="s2">&quot;US&quot;</span><span class="p">)</span>
-<span class="go">True</span>
+<p>Finally, as long as you’ve specified a <code class="docutils literal notranslate"><span class="pre">timezone</span></code> alongside the <code class="docutils literal notranslate"><span class="pre">datetime</span></code> you
+are formatting and/or translating, you can also convert to a different timezone
+before outputting anything.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># start in EDT</span>
+<span class="go"> &gt;&gt;&gt; dt.isoformat()</span>
+<span class="go"> &#39;2022-04-12T09:30:00-04:00&#39;</span>
+<span class="go"> &gt;&gt;&gt; # end in UTC</span>
+<span class="go"> &gt;&gt;&gt; dtfmt(dt, &quot;ISODATETIME&quot;, output_tz=gettz(&quot;utc&quot;))</span>
+<span class="go"> &#39;2022-04-12T13:30:00+00:00&#39;</span>
 </pre></div>
-</div>
-<p>We can also inherit from the HolidayBase class which has an empty
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">_populate()</span></code> method so we start with no holidays and must define them
-all ourselves. This is how we would create a holidays class for a country
-that is not supported yet:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">NewCountryHolidays</span><span class="p">(</span><span class="n">holidays</span><span class="o">.</span><span class="n">HolidayBase</span><span class="p">):</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="k">def</span> <span class="nf">_populate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
-<span class="gp">&gt;&gt;&gt; </span>        <span class="bp">self</span><span class="p">[</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;Some Federal Holiday&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span>        <span class="bp">self</span><span class="p">[</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;Another Federal Holiday&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">hdays</span> <span class="o">=</span> <span class="n">NewCountryHolidays</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>We can also include holidays for a subdivision (e.g. prov/state) in our new
-class:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">NewCountryHolidays</span><span class="p">(</span><span class="n">holidays</span><span class="o">.</span><span class="n">HolidayBase</span><span class="p">):</span>
-<span class="gp">&gt;&gt;&gt; </span>    <span class="k">def</span> <span class="nf">_populate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">year</span><span class="p">):</span>
-<span class="gp">&gt;&gt;&gt; </span>        <span class="c1"># Set default subdiv if not provided</span>
-<span class="gp">&gt;&gt;&gt; </span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subdiv</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
-<span class="gp">&gt;&gt;&gt; </span>            <span class="bp">self</span><span class="o">.</span><span class="n">subdiv</span> <span class="o">=</span> <span class="s1">&#39;XX&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span>        <span class="bp">self</span><span class="p">[</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;Some Federal Holiday&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subdiv</span> <span class="o">==</span> <span class="s1">&#39;XX&#39;</span><span class="p">:</span>
-<span class="gp">&gt;&gt;&gt; </span>            <span class="bp">self</span><span class="p">[</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;Special XX subdiv-only holiday&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">subdiv</span> <span class="o">==</span> <span class="s1">&#39;YY&#39;</span><span class="p">:</span>
-<span class="gp">&gt;&gt;&gt; </span>            <span class="bp">self</span><span class="p">[</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span> <span class="o">=</span> <span class="s2">&quot;Special YY subdiv-only holiday&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">hdays</span> <span class="o">=</span> <span class="n">NewCountryHolidays</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">hdays</span> <span class="o">=</span> <span class="n">NewCountryHolidays</span><span class="p">(</span><span class="n">subdiv</span><span class="o">=</span><span class="s1">&#39;XX&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>If you write the code necessary to create a holiday class for a country
-not currently supported please contribute your code to the project!</p>
-<p>Perhaps you just have a list of dates that are holidays and want to turn
-them into a Holiday class to access all the useful functionality. You can
-use the py:meth:<cite>append()</cite> method which accepts a dictionary of {date: name}
-pairs, a list of dates, or even singular date/string/timestamp objects:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">custom_holidays</span> <span class="o">=</span> <span class="n">holidays</span><span class="o">.</span><span class="n">HolidayBase</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_holidays</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s1">&#39;2015-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;07/04/2015&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_holidays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="other-ways-to-specify-the-country">
-<h2>Other ways to specify the country<a class="headerlink" href="#other-ways-to-specify-the-country" title="Permalink to this headline"></a></h2>
-<p>Each country has two class names that can be called in addition to the alpha-2
-ISO code: its 3-digit ISO code and an internal class name.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">holidays</span><span class="o">.</span><span class="n">USA</span><span class="p">()</span> <span class="o">==</span> <span class="n">holidays</span><span class="o">.</span><span class="n">US</span><span class="p">()</span>
-<span class="go">True</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">holidays</span><span class="o">.</span><span class="n">UnitedStates</span><span class="p">()</span> <span class="o">==</span> <span class="n">holidays</span><span class="o">.</span><span class="n">US</span><span class="p">()</span>
-<span class="go">True</span>
-</pre></div>
-</div>
-<div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version In: </span>the future</p>
 </div>
 </div>
 </div>
@@ -314,7 +250,7 @@ ISO code: its 3-digit ISO code and an internal class name.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="python-holidays" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="datetime_format" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
@@ -322,7 +258,7 @@ ISO code: its 3-digit ISO code and an internal class name.</p>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022.
-      <span class="lastupdated">Last updated on Apr 06, 2022.
+      <span class="lastupdated">Last updated on Apr 13, 2022.
       </span></p>
   </div>
 

@@ -3,9 +3,9 @@ Contributing
 ============
 
 .. _prs: https://github.com/dr-prodigy/python-holidays/pulls
-.. _`beta branch`: https://github.com/dr-prodigy/python-holidays/tree/beta
+.. _`beta branch`: https://github.com/nadime/datetime_format/tree/beta
 .. |contributors| image:: https://img.shields.io/github/contributors/dr-prodigy/python-holidays
-    :target: https://www.github.com/dr-prodigy/python-holidays
+    :target: https://www.github.com/nadime/datetime_format
     :alt: contributors
 
 |contributors|
@@ -22,7 +22,6 @@ Contributed PRs_ are required to include valid test coverage **(95% minimum,
 
 Thanks a lot for your support.
 
-
 Running tests
 -------------
 
@@ -30,7 +29,7 @@ First step is installing all the required dependencies with:
 
 .. code-block:: bash
 
-    $ pip install -r requirements_dev.txt
+    $ pip install -r requirements.txt
 
 The project provides automated tests and coverage checks with tox; just run:
 
@@ -49,7 +48,7 @@ Alternatively, you can run pytest to run tests and coverage:
 In addition to pytest, you need to ensure that all staged files are up to
 standard.
 
-.. _pre-commit: https://github.com/dr-prodigy/python-holidays/issues
+.. _pre-commit: https://github.com/nadime/datetime_format/issues
 
 Install `pre-commit`_ and its git hook script so that the quality assurance
 tests will run on all staged files before they are committed:
@@ -69,7 +68,7 @@ To manually run the quality assurance tests on all tracked files:
 Build sphinx documentation
 --------------------------
 
-.. _readthedocs.io: https://python-holidays.readthedocs.io/
+.. _readthedocs.io: https://datetime_format.readthedocs.io/
 
 The project provides a Sphinx documentation source under ``./docs/source``,
 published online on `readthedocs.io`_.

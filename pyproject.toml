@@ -1,6 +1,6 @@
 [tool.black]
 line-length = 79
-target-version = ['py36', 'py37', 'py38', 'py39', 'py310']
+target-version = ['py38', 'py39', 'py310']
 exclude = '''
 /(
     \.eggs
@@ -18,16 +18,13 @@ exclude = '''
 
 [tool.coverage.run]
 branch = true
-include = [
-  'tests.py',
-]
 omit = [
   'setup.py',
   'datetime_format/__init__.py',
   'tests/*',
   'tests.py',
 # comment the above line if you want to see if all tests did run
-  ]
+]
 
 [tool.coverage.report]
 # Regexes for lines to exclude from consideration

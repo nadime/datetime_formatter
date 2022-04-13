@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contributing &mdash; holidays  documentation</title>
+  <title>Contributing &mdash; datetime_format  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -26,10 +26,10 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> holidays
+            <a href="index.html" class="icon icon-home"> datetime_format
           </a>
               <div class="version">
-                0.14
+                0.0.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -60,7 +60,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">holidays</a>
+          <a href="index.html">datetime_format</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -79,11 +79,11 @@
              
   <div class="section" id="contributing">
 <h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline"></a></h1>
-<p><a class="reference external" href="https://www.github.com/dr-prodigy/python-holidays" rel="noopener noreferrer" target="_blank"><img alt="contributors" src="https://img.shields.io/github/contributors/dr-prodigy/python-holidays" /></a></p>
+<p><a class="reference external" href="https://www.github.com/nadime/datetime_format" rel="noopener noreferrer" target="_blank"><img alt="contributors" src="https://img.shields.io/github/contributors/dr-prodigy/python-holidays" /></a></p>
 <div class="section" id="basics">
 <h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline"></a></h2>
 <p>When contributing with fixes and new features, please start forking/branching
-from the <a class="reference external" href="https://github.com/dr-prodigy/python-holidays/tree/beta" rel="noopener noreferrer" target="_blank">beta branch</a> to work on the latest code and reduce merging issues.</p>
+from the <a class="reference external" href="https://github.com/nadime/datetime_format/tree/beta" rel="noopener noreferrer" target="_blank">beta branch</a> to work on the latest code and reduce merging issues.</p>
 <p>Contributed <a class="reference external" href="https://github.com/dr-prodigy/python-holidays/pulls" rel="noopener noreferrer" target="_blank">PRs</a> are required to include valid test coverage <strong>(95% minimum,
 100% whenever possible)</strong> in order to be merged.</p>
 <p>Thanks a lot for your support.</p>
@@ -91,7 +91,7 @@ from the <a class="reference external" href="https://github.com/dr-prodigy/pytho
 <div class="section" id="running-tests">
 <h2>Running tests<a class="headerlink" href="#running-tests" title="Permalink to this headline"></a></h2>
 <p>First step is installing all the required dependencies with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -r requirements_dev.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -r requirements.txt
 </pre></div>
 </div>
 <p>The project provides automated tests and coverage checks with tox; just run:</p>
@@ -106,7 +106,7 @@ $ python -m pytest --cov-report term-missing .
 </div>
 <p>In addition to pytest, you need to ensure that all staged files are up to
 standard.</p>
-<p>Install <a class="reference external" href="https://github.com/dr-prodigy/python-holidays/issues" rel="noopener noreferrer" target="_blank">pre-commit</a> and its git hook script so that the quality assurance
+<p>Install <a class="reference external" href="https://github.com/nadime/datetime_format/issues" rel="noopener noreferrer" target="_blank">pre-commit</a> and its git hook script so that the quality assurance
 tests will run on all staged files before they are committed:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install pre-commit
 $ pre-commit install
@@ -120,7 +120,7 @@ $ pre-commit install
 <div class="section" id="build-sphinx-documentation">
 <h2>Build sphinx documentation<a class="headerlink" href="#build-sphinx-documentation" title="Permalink to this headline"></a></h2>
 <p>The project provides a Sphinx documentation source under <code class="docutils literal notranslate"><span class="pre">./docs/source</span></code>,
-published online on <a class="reference external" href="https://python-holidays.readthedocs.io/" rel="noopener noreferrer" target="_blank">readthedocs.io</a>.</p>
+published online on <a class="reference external" href="https://datetime_format.readthedocs.io/" rel="noopener noreferrer" target="_blank">readthedocs.io</a>.</p>
 <p>Great documentation is absolutely key in any a project. If you are not familiar
 with reStructuredText for Sphinx you can read a primer
 <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html" rel="noopener noreferrer" target="_blank">here</a>.</p>
@@ -139,7 +139,7 @@ with reStructuredText for Sphinx you can read a primer
 
   <div role="contentinfo">
     <p>&#169; Copyright 2022.
-      <span class="lastupdated">Last updated on Apr 06, 2022.
+      <span class="lastupdated">Last updated on Apr 13, 2022.
       </span></p>
   </div>
 

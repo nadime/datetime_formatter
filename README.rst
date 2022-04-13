@@ -63,12 +63,12 @@ Quick Start
 
 .. code-block:: python3
 
-    from datetime import datetime
-    from datetime_format import dtfmt
+ from datetime import datetime
+  from datetime_format import dtfmt
 
-    dtfmt(20050301, "YYYYMMDD") == "20050301"  # True
-    dtfmt("2005-03-01", "MMDDYY") == "030105"  # True
-    dtfmt("2005-03-01 08:30:00", "HHMMSS") == "083000" # True
+  dtfmt(20050301, "YYYYMMDD") == "20050301"  # True
+  dtfmt("2005-03-01", "MMDDYY") == "030105"  # True
+  dtfmt("2005-03-01 08:30:00", "HHMMSS") == "083000" # True
 
 You can use the ``dtfmt`` shortcut, intended for use within ``f-strings``, or
 you can instantiate a ``DateTimeFormatter`` object and use its ``.format`` method
@@ -76,27 +76,28 @@ you can instantiate a ``DateTimeFormatter`` object and use its ``.format`` metho
 
 .. code-block:: python3
 
-    dtf = DateTimeFormatter(datetime(2005, 3, 1))
-    dtf.format("%YYYYMMDD%") == "20050301"
+ dtf = DateTimeFormatter(datetime(2005, 3, 1))
+  dtf.format("%YYYYMMDD%") == "20050301"
 
 You can also translate dates and/or times using inline translation syntax, e.g.:
 
 .. code-block:: python3
 
-    dtfmt(20050301, "YMD-M1D") == "20050228"
-    dtfmt(20050301, "YMD-M1Y") == "20040301"
-    dtfmt("20050301 08:30:00", "DATETIME-P1H") == "2005-03-01 09:30:00"
+ dtfmt(20050301, "YMD-M1D") == "20050228"
+  dtfmt(20050301, "YMD-M1Y") == "20040301"
+  dtfmt("20050301 08:30:00", "DATETIME-P1H") == "2005-03-01 09:30:00"
 
 You can also convert to a new timezone on the fly, but only if you
 your ``datetime`` object is not timezone-naive.
 
 .. code-block:: python3
-    from dateutil import tz
 
-    utc = tz.gettz("UTC")
-    est = tz.gettz("EST")
-    dt = datetime(2005, 3, 1, 8, 30, 0, 0, est)
-    dtfmt(dt, "ISODT", utc) == "2005-03-01T13:30:00+00:00"
+ from dateutil import tz
+
+  utc = tz.gettz("UTC")
+  est = tz.gettz("EST")
+  dt = datetime(2005, 3, 1, 8, 30, 0, 0, est)
+  dtfmt(dt, "ISODT", output_tz=utc) == "2005-03-01T13:30:00+00:00"
 
 The full list of supported output shortcuts and translations are provided
 below.  You can also use the ``holidays`` module with translations to skip
@@ -105,10 +106,9 @@ translation size.
 
 .. code-block:: python3
 
-    import holidays
-    dtfmt(20061229, "DATE-P2B", holidays=holidays.US()) == "2007-01-03"
+ import holidays
+  dtfmt(20061229, "DATE-P2B", holidays=holidays.US()) == "2007-01-03"
 
-.. _documentation: https://datetime_format.readthedocs.io/
 
 Please see the `documentation`_ for additional examples and detailed
 information.
@@ -266,7 +266,11 @@ the fields to be replaced must be surrounded by ``%``, e.g. ``%YYYYMMDD%``.
 Available Translations
 ----------------------
 
-Translations are made up of three parts.
+Translations are made up of three parts.  The ``direction`` (``M`` or ``P``)
+determines whether to go forward/backward (plus/minus).  The ``unit``
+(see table below for ``unit``-types) determines how far each step takes us
+foward or backward.  Finally the ``size`` is a non-negative integer that tells
+us how far to move in the provided ``units``.
 
 .. list-table::
    :widths: 20 10 50
@@ -309,12 +313,18 @@ Translations are made up of three parts.
             - Microsecond(s)
           * - ``B``
             - Business day(s)
+          * - ``F``
+            - Business week(s)
+          * - ``P``
+            - Business month(s)
+          * - ``K``
+            - Business year(s)
 
 You can string together any combination of these three translation parts, e.g.:
 
 .. code-block:: python
 
-  dtfmt(20050301, "YMD-M1B")      # 20050301 minus 2 business days (20050225)
+ dtfmt(20050301, "YMD-M1B")      # 20050301 minus 2 business days (20050225)
   dtfmt(20050301, "YMD-P1Y")      # 20050301 plus 1 year (20060301)
   dtfmt(20050301, "DATETIME-P1H") # 20050301 00:00:00 plus 1 hour: (2005-03-01 01:00:00)
 

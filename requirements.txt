@@ -1,8 +1,10 @@
 # runtime requirements
+attr
 datetime
 holidays
 tzlocal
 python-dateutil
+typing-extensions
 
 # test requirements
 pytest

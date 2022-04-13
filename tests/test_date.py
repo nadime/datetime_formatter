@@ -5,7 +5,6 @@ from datetime_format.__datetime import (
     _string_to_date,
     _check_date,
     _check_month,
-
 )
 import datetime
 
@@ -42,7 +41,7 @@ def test_check_date():
 
 def test_int_to_date():
     assert _int_to_date(20050102) == datetime.date(2005, 1, 2)
-    assert _int_to_date(200510) == datetime.date(2005,10,1)
+    assert _int_to_date(200510) == datetime.date(2005, 10, 1)
     with pytest.raises(ValueError):
         _int_to_date(200513)
     with pytest.raises(ValueError):
@@ -52,11 +51,12 @@ def test_int_to_date():
     with pytest.raises(ValueError):
         _int_to_date(99991331)
 
+
 def test_string_to_date():
-    assert _string_to_date("20050102") == datetime.date(2005,1,2)
-    assert _string_to_date("2005-01-02") == datetime.date(2005,1,2)
-    assert _string_to_date("2005/01/02") == datetime.date(2005,1,2)
-    assert _string_to_date("01-02-2005") == datetime.date(2005,1,2)
+    assert _string_to_date("20050102") == datetime.date(2005, 1, 2)
+    assert _string_to_date("2005-01-02") == datetime.date(2005, 1, 2)
+    assert _string_to_date("2005/01/02") == datetime.date(2005, 1, 2)
+    assert _string_to_date("01-02-2005") == datetime.date(2005, 1, 2)
     assert _string_to_date("10-01-20") == datetime.date(2020, 10, 1)
     assert _string_to_date("10-01-98") == datetime.date(1998, 10, 1)
 

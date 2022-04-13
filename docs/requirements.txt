@@ -1,7 +1,10 @@
 # pip requirements for building docs (they must include install_requires from setup.cfg)
 convertdate>=2.3.0
 hijri-converter
-korean-lunar-calendar
+attr
+datetime
+holidays
 python-dateutil
+tzlocal
 sphinx >= 4.3
 sphinx_rtd_theme >= 1.0

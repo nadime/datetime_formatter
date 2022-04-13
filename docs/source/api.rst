@@ -1,5 +1,6 @@
 API Reference
 ================
 
-.. automodule:: holidays.utils
-.. automodule:: holidays.holiday_base
+.. autofunction:: datetime_format.dtfmt
+.. autofunction:: datetime_format.dtformat
+.. autoclass:: datetime_format.DateTimeFormatter
