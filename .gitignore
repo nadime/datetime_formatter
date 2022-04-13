@@ -2,15 +2,16 @@ ld/
 dist/
 venv/
 MANIFEST
-.coverage
 *.egg-info
 *.pyc
 *.DS_Store
+.coverage
 coverage.xml
 .tox
 .venv
 docs/_build
 docs/source/_build
+*/__pycache__/*
 
 # IDE Stuff
 .idea
