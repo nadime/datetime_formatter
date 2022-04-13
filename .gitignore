@@ -1,0 +1,19 @@
+ld/
+dist/
+venv/
+MANIFEST
+.coverage
+*.egg-info
+*.pyc
+*.DS_Store
+coverage.xml
+.tox
+.venv
+docs/_build
+docs/source/_build
+
+# IDE Stuff
+.idea
+.vscode/
+*.code-workspace
+Pipfile
