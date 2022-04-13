@@ -1,7 +1,7 @@
 # pip requirements for building docs (they must include install_requires from setup.cfg)
 convertdate>=2.3.0
 hijri-converter
-attr
+attrs
 datetime
 holidays
 python-dateutil
