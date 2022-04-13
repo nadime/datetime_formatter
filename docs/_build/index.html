@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>python-holidays &mdash; holidays  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Additional Examples" href="examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> holidays
+          </a>
+              <div class="version">
+                0.14
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Additional Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">holidays</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>python-holidays</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="python-holidays">
+<h1>python-holidays<a class="headerlink" href="#python-holidays" title="Permalink to this headline"></a></h1>
+<p>A fast, efficient Python library for generating country- and subdivision- (e.g.
+state or province) specific sets of government-designated holidays on the fly.
+It aims to make determining whether a specific date is a holiday as fast and
+flexible as possible.</p>
+<a class="reference external image-reference" href="actions" rel="noopener noreferrer" target="_blank"><img alt="https://github.com/dr-prodigy/python-holidays/workflows/Tests/badge.svg" src="https://github.com/dr-prodigy/python-holidays/workflows/Tests/badge.svg" /></a>
+<a class="reference external image-reference" href="https://coveralls.io/r/dr-prodigy/python-holidays" rel="noopener noreferrer" target="_blank"><img alt="http://img.shields.io/coveralls/dr-prodigy/python-holidays/master" src="http://img.shields.io/coveralls/dr-prodigy/python-holidays/master" /></a>
+<a class="reference external image-reference" href="https://pypi.python.org/pypi/holidays" rel="noopener noreferrer" target="_blank"><img alt="http://img.shields.io/pypi/v/holidays.svg" src="http://img.shields.io/pypi/v/holidays.svg" /></a>
+<a class="reference external image-reference" href="LICENSE" rel="noopener noreferrer" target="_blank"><img alt="http://img.shields.io/pypi/l/holidays.svg" src="http://img.shields.io/pypi/l/holidays.svg" /></a>
+<a class="reference external image-reference" href="https://python-holidays.readthedocs.io/en/latest/?badge=latest" rel="noopener noreferrer" target="_blank"><img alt="Documentation Status" src="https://readthedocs.org/projects/python-holidays/badge/?version=latest" /></a>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline"></a></h2>
+<p>The latest stable version can always be installed or updated via pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install --update holidays
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline"></a></h2>
+<p>The documentation is hosted on <a class="reference external" href="https://python-holidays.readthedocs.io/" rel="noopener noreferrer" target="_blank">Read the Docs</a>.</p>
+</div>
+<div class="section" id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="kn">import</span> <span class="nn">holidays</span>
+
+<span class="n">us_holidays</span> <span class="o">=</span> <span class="n">holidays</span><span class="o">.</span><span class="n">US</span><span class="p">()</span>  <span class="c1"># this is a dict</span>
+<span class="c1"># the below is the same, but takes a string:</span>
+<span class="n">us_holidays</span> <span class="o">=</span> <span class="n">holidays</span><span class="o">.</span><span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">)</span>  <span class="c1"># this is a dict</span>
+
+<span class="n">date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">us_holidays</span>  <span class="c1"># True</span>
+<span class="n">date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">in</span> <span class="n">us_holidays</span>  <span class="c1"># False</span>
+<span class="n">us_holidays</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;2014-01-01&#39;</span><span class="p">)</span>  <span class="c1"># &quot;New Year&#39;s Day&quot;</span>
+</pre></div>
+</div>
+<p>The HolidayBase dict-like class will also recognize date strings and Unix
+timestamps:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;2014-01-01&#39;</span> <span class="ow">in</span> <span class="n">us_holidays</span>  <span class="c1"># True</span>
+<span class="s1">&#39;1/1/2014&#39;</span> <span class="ow">in</span> <span class="n">us_holidays</span>    <span class="c1"># True</span>
+<span class="mi">1388597445</span> <span class="ow">in</span> <span class="n">us_holidays</span>    <span class="c1"># True</span>
+</pre></div>
+</div>
+<p>Some holidays may be only present in parts of a country:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">us_pr_holidays</span> <span class="o">=</span> <span class="n">holidays</span><span class="o">.</span><span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="n">subdiv</span><span class="o">=</span><span class="s1">&#39;PR&#39;</span><span class="p">)</span>
+<span class="s1">&#39;2018-01-06&#39;</span> <span class="ow">in</span> <span class="n">us_holidays</span>     <span class="c1"># False</span>
+<span class="s1">&#39;2018-01-06&#39;</span> <span class="ow">in</span> <span class="n">us_pr_holidays</span>  <span class="c1"># True</span>
+</pre></div>
+</div>
+<p>Please see the <a class="reference external" href="https://python-holidays.readthedocs.io/" rel="noopener noreferrer" target="_blank">documentation</a> for additional examples and detailed
+information.</p>
+</div>
+<div class="section" id="available-countries">
+<h2>Available Countries<a class="headerlink" href="#available-countries" title="Permalink to this headline"></a></h2>
+<p>We currently support 86 countries. The standard way to refer to a country is by
+using its <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes" rel="noopener noreferrer" target="_blank">ISO 3166-1 alpha-2 code</a>, the same used for domain names. The
+following countries and their subdivisions are available:</p>
+<table border="1" class="colwidths-given tight-table docutils align-default">
+<colgroup>
+<col width="21%" />
+<col width="4%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Country</th>
+<th class="head">Code</th>
+<th class="head">Subdivisions Available</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Angola</td>
+<td>AO</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Argentina</td>
+<td>AR</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Aruba</td>
+<td>AW</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Australia</td>
+<td>AU</td>
+<td>States and territories: <strong>ACT</strong> (default), NSW, NT, QLD, SA, TAS, VIC, WA</td>
+</tr>
+<tr class="row-even"><td>Austria</td>
+<td>AT</td>
+<td>States: 1, 2, 3, 4, 5, 6, 7, 8, <strong>9</strong> (default)</td>
+</tr>
+<tr class="row-odd"><td>Azerbaijan</td>
+<td>AZ</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Bangladesh</td>
+<td>BD</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Belarus</td>
+<td>BY</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Belgium</td>
+<td>BE</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Botswana</td>
+<td>BW</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Brazil</td>
+<td>BR</td>
+<td>States: AC, AL, AM, AP, BA, CE, DF, ES, GO, MA, MG, MS, MT, PA, PB, PE, PI, RJ, RN, RO, RR, RS, SC, SE, SP, TO</td>
+</tr>
+<tr class="row-odd"><td>Bulgaria</td>
+<td>BG</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Burundi</td>
+<td>BI</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Canada</td>
+<td>CA</td>
+<td>Provinces and territories: AB, BC, MB, NB, NL, NS NT, NU, <strong>ON</strong> (default), PE, QC, SK, YU</td>
+</tr>
+<tr class="row-even"><td>Chile</td>
+<td>CL</td>
+<td>Regions: AI, AN, AP, AR, AT, BI, CO, LI, LL, LR, MA, ML, NB, RM, TA, VS</td>
+</tr>
+<tr class="row-odd"><td>China</td>
+<td>CN</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Colombia</td>
+<td>CO</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Croatia</td>
+<td>HR</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Curaçao</td>
+<td>CW</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Czechia</td>
+<td>CZ</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Denmark</td>
+<td>DK</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Djibouti</td>
+<td>DJ</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Dominican Republic</td>
+<td>DO</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Egypt</td>
+<td>EG</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Estonia</td>
+<td>EE</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Ethiopia</td>
+<td>ET</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Finland</td>
+<td>FI</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>France</td>
+<td>FR</td>
+<td>Départements: <strong>Métropole</strong> (default), Alsace-Moselle, Guadeloupe, Guyane, Martinique, Mayotte, Nouvelle-Calédonie, La Réunion, Polynésie Française, Saint-Barthélémy, Saint-Martin, Wallis-et-Futuna</td>
+</tr>
+<tr class="row-even"><td>Georgia</td>
+<td>GE</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Germany</td>
+<td>DE</td>
+<td>States: BB, BE, BW, BY, BYP, HB, HE, HH, MV, NI, NW, RP, SH, SL, SN, ST, TH</td>
+</tr>
+<tr class="row-even"><td>Greece</td>
+<td>GR</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Honduras</td>
+<td>HN</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Hong Kong</td>
+<td>HK</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Hungary</td>
+<td>HU</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Iceland</td>
+<td>IS</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>India</td>
+<td>IN</td>
+<td>States: AP, AS, BR, CG, GJ, HR, KA, KL, MH, MP, OD, RJ, SK, TN, TN, UK, UP, WB</td>
+</tr>
+<tr class="row-even"><td>Ireland</td>
+<td>IE</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Isle of Man</td>
+<td>IM</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Israel</td>
+<td>IL</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Italy</td>
+<td>IT</td>
+<td>Provinces: AG, AL, AN, AO, AP, AQ, AR, AT, AV, BA, BG, BI, BL, BN, BO, BR, BS, BT, BZ, CA, CB, CE, CH, CL, CN, CO, CR, CS, CT, CZ, EN, FC, FE, FG, FI, FM, FR, GE, GO, GR, IM, IS, KR, LC, LE, LI, LO, LT, LU, MB, MC, ME, MI, MN, MO, MS, MT, NA, NO, NU, OR, PA, PC, PD, PE, PG, PI, PN, PO, PR, PT, PU, PV, PZ, RA, RC, RE, RG, RI, RM, RN, RO, SA, SI, SO, SP, SR, SS, SU, SV, TA, TE, TN, TO, TP, TR, TS, TV, UD, VA, VB, VC, VE, VI, VR, VT, VV; Cities: Barletta, Andria, Trani, Cesena, Forlì, Pesaro, Urbino</td>
+</tr>
+<tr class="row-even"><td>Jamaica</td>
+<td>JM</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Japan</td>
+<td>JP</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Kazakhstan</td>
+<td>KZ</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Kenya</td>
+<td>KE</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Korea</td>
+<td>KR</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Latvia</td>
+<td>LV</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Lesotho</td>
+<td>LS</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Lithuania</td>
+<td>LT</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Luxembourg</td>
+<td>LU</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Malaysia</td>
+<td>MY</td>
+<td>States: JHR, KDH, KTN, MLK, NSN, PHG, PNG, PRK, PLS, SBH, SWK, SGR, TRG, KUL, LBN, PJY</td>
+</tr>
+<tr class="row-even"><td>Malawi</td>
+<td>MW</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Malta</td>
+<td>MT</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Mexico</td>
+<td>MX</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Morocco</td>
+<td>MA</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Mozambique</td>
+<td>MZ</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Netherlands</td>
+<td>NL</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Namibia</td>
+<td>NA</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>New Zealand</td>
+<td>NZ</td>
+<td>Regions: AUK, CAN, HKB, MBH, NSN, NTL, OTA, STL, TKI, WGN, WTC, CIT; Sub-regions: South Canterbury</td>
+</tr>
+<tr class="row-even"><td>Nicaragua</td>
+<td>NI</td>
+<td>Departments: <strong>MN</strong> (default)</td>
+</tr>
+<tr class="row-odd"><td>Nigeria</td>
+<td>NG</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>North Macedonia</td>
+<td>MK</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Norway</td>
+<td>NO</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Paraguay</td>
+<td>PY</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Peru</td>
+<td>PE</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Poland</td>
+<td>PL</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Portugal</td>
+<td>PT</td>
+<td>Use subd=’Ext’ to include holidays most people have off</td>
+</tr>
+<tr class="row-even"><td>Romania</td>
+<td>RO</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Russia</td>
+<td>RU</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Saudi Arabia</td>
+<td>SA</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Serbia</td>
+<td>RS</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Singapore</td>
+<td>SG</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Slovakia</td>
+<td>SK</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Slovenia</td>
+<td>SI</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>South Africa</td>
+<td>ZA</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Spain</td>
+<td>ES</td>
+<td>Autonomous communities: AN (Andalucía), AR (Aragón), AS (Asturias), CB (Cantabria), CE (Ceuta), CL (Castilla y León), CM (Castilla La Mancha), CN (Canarias), CT (Cataluña), EX (Extremadura), GA (Galicia), IB (Islas Baleares), MC (Murcia), MD (Madrid), NC (Navarra), PV (País Vasco), RI (La Rioja), VC (Comunidad Valenciana)</td>
+</tr>
+<tr class="row-odd"><td>Swaziland</td>
+<td>SZ</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Sweden</td>
+<td>SE</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Switzerland</td>
+<td>CH</td>
+<td>Cantons: AG, AR, AI, BL, BS, BE, FR, GE, GL, GR, JU, LU, NE, NW, OW, SG, SH, SZ, SO, TG, TI, UR, VD, VS, ZG, ZH</td>
+</tr>
+<tr class="row-even"><td>Taiwan</td>
+<td>TW</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Turkey</td>
+<td>TR</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Tunisia</td>
+<td>TN</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Ukraine</td>
+<td>UA</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>United Arab Emirates</td>
+<td>AE</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>United Kingdom</td>
+<td>GB</td>
+<td>Subdivisions: <strong>UK</strong> (default), England, Northern Ireland, Scotland, Wales. For Isle of Man use country code IM.</td>
+</tr>
+<tr class="row-even"><td>United States</td>
+<td>US</td>
+<td>States and territories: AL, AK, AS, AZ, AR, CA, CO, CT, DE, DC, FL, GA, GU, HI, ID, IL, IN, IA, KS, KY, LA, ME, MD, MH, MA, MI, FM, MN, MS, MO, MT, NE, NV, NH, NJ, NM, NY, NC, ND, MP, OH, OK, OR, PW, PA, PR, RI, SC, SD, TN, TX, UT, VT, VA, VI, WA, WV, WI, WY</td>
+</tr>
+<tr class="row-odd"><td>Uruguay</td>
+<td>UY</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Uzbekistan</td>
+<td>UZ</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Venezuela</td>
+<td>VE</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Vietnam</td>
+<td>VN</td>
+<td>None</td>
+</tr>
+<tr class="row-odd"><td>Zambia</td>
+<td>ZM</td>
+<td>None</td>
+</tr>
+<tr class="row-even"><td>Zimbabwe</td>
+<td>ZW</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="available-financial-markets">
+<h3>Available Financial Markets<a class="headerlink" href="#available-financial-markets" title="Permalink to this headline"></a></h3>
+<p>The standard way to refer to a financial market is to use its <a class="reference external" href="https://www.iso20022.org/market-identifier-codes" rel="noopener noreferrer" target="_blank">ISO 10383 MIC</a>
+(Market Identifier Code) as a “country” code when available. The
+following financial markets are available:</p>
+<table border="1" class="colwidths-given tight-table docutils align-default">
+<colgroup>
+<col width="21%" />
+<col width="4%" />
+<col width="75%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Entity</th>
+<th class="head">Code</th>
+<th class="head">Info</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>European Central Bank</td>
+<td>ECB</td>
+<td>Trans-European Automated Real-time Gross Settlement (TARGET2)</td>
+</tr>
+<tr class="row-odd"><td>New York Stock Exchange</td>
+<td>NYSE</td>
+<td>NYSE market holidays (used by all other US-exchanges, including NASDAQ, etc.)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="beta-version">
+<h2>Beta Version<a class="headerlink" href="#beta-version" title="Permalink to this headline"></a></h2>
+<p>The latest development (beta) version can be installed directly from GitHub:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install --upgrade https://github.com/dr-prodigy/python-holidays/tarball/beta
+</pre></div>
+</div>
+<p>All new features are always first pushed to beta branch, then released on
+master branch upon official version upgrades.</p>
+</div>
+<div class="section" id="contributions">
+<h2>Contributions<a class="headerlink" href="#contributions" title="Permalink to this headline"></a></h2>
+<p><a class="reference external" href="https://github.com/dr-prodigy/python-holidays/issues" rel="noopener noreferrer" target="_blank">Issues</a> and <a class="reference external" href="https://github.com/dr-prodigy/python-holidays/pulls" rel="noopener noreferrer" target="_blank">pull requests</a> are always welcome.  Please see
+<a class="reference external" href="CONTRIBUTING.rst" rel="noopener noreferrer" target="_blank">here</a> for more information.</p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline"></a></h2>
+<p>Code and documentation are available according to the MIT License
+(see <a class="reference external" href="LICENSE" rel="noopener noreferrer" target="_blank">LICENSE</a>).</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="examples.html" class="btn btn-neutral float-right" title="Additional Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.
+      <span class="lastupdated">Last updated on Apr 07, 2022.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+action: GLOB, msg: packaging
+cwd: /Users/scottasher/src/datetime_format
+cmd: /usr/local/opt/python@3.9/bin/python3.9 setup.py sdist --formats=zip --dist-dir /Users/scottasher/src/datetime_format/.tox/dist
+running sdist
+running egg_info
+creating datetime_format.egg-info
+writing datetime_format.egg-info/PKG-INFO
+writing dependency_links to datetime_format.egg-info/dependency_links.txt
+writing requirements to datetime_format.egg-info/requires.txt
+writing top-level names to datetime_format.egg-info/top_level.txt
+writing manifest file 'datetime_format.egg-info/SOURCES.txt'
+reading manifest file 'datetime_format.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching 'py.typed'
+adding license file 'LICENSE'
+writing manifest file 'datetime_format.egg-info/SOURCES.txt'
+running check
+creating datetime_format-0.13
+creating datetime_format-0.13/datetime_format
+creating datetime_format-0.13/datetime_format.egg-info
+copying files to datetime_format-0.13...
+copying CHANGES -> datetime_format-0.13
+copying CONTRIBUTING.rst -> datetime_format-0.13
+copying LICENSE -> datetime_format-0.13
+copying MANIFEST.in -> datetime_format-0.13
+copying README.rst -> datetime_format-0.13
+copying pyproject.toml -> datetime_format-0.13
+copying setup.cfg -> datetime_format-0.13
+copying setup.py -> datetime_format-0.13
+copying version.py -> datetime_format-0.13
+copying datetime_format/__datetime.py -> datetime_format-0.13/datetime_format
+copying datetime_format/__datetime_format.py -> datetime_format-0.13/datetime_format
+copying datetime_format/__formats.py -> datetime_format-0.13/datetime_format
+copying datetime_format/__init__.py -> datetime_format-0.13/datetime_format
+copying datetime_format.egg-info/PKG-INFO -> datetime_format-0.13/datetime_format.egg-info
+copying datetime_format.egg-info/SOURCES.txt -> datetime_format-0.13/datetime_format.egg-info
+copying datetime_format.egg-info/dependency_links.txt -> datetime_format-0.13/datetime_format.egg-info
+copying datetime_format.egg-info/requires.txt -> datetime_format-0.13/datetime_format.egg-info
+copying datetime_format.egg-info/top_level.txt -> datetime_format-0.13/datetime_format.egg-info
+Writing datetime_format-0.13/setup.cfg
+creating /Users/scottasher/src/datetime_format/.tox/dist
+creating '/Users/scottasher/src/datetime_format/.tox/dist/datetime_format-0.13.zip' and adding 'datetime_format-0.13' to it
+adding 'datetime_format-0.13'
+adding 'datetime_format-0.13/datetime_format.egg-info'
+adding 'datetime_format-0.13/datetime_format'
+adding 'datetime_format-0.13/PKG-INFO'
+adding 'datetime_format-0.13/version.py'
+adding 'datetime_format-0.13/LICENSE'
+adding 'datetime_format-0.13/CONTRIBUTING.rst'
+adding 'datetime_format-0.13/CHANGES'
+adding 'datetime_format-0.13/pyproject.toml'
+adding 'datetime_format-0.13/MANIFEST.in'
+adding 'datetime_format-0.13/setup.py'
+adding 'datetime_format-0.13/setup.cfg'
+adding 'datetime_format-0.13/README.rst'
+adding 'datetime_format-0.13/datetime_format.egg-info/PKG-INFO'
+adding 'datetime_format-0.13/datetime_format.egg-info/SOURCES.txt'
+adding 'datetime_format-0.13/datetime_format.egg-info/requires.txt'
+adding 'datetime_format-0.13/datetime_format.egg-info/top_level.txt'
+adding 'datetime_format-0.13/datetime_format.egg-info/dependency_links.txt'
+adding 'datetime_format-0.13/datetime_format/__datetime_format.py'
+adding 'datetime_format-0.13/datetime_format/__init__.py'
+adding 'datetime_format-0.13/datetime_format/__formats.py'
+adding 'datetime_format-0.13/datetime_format/__datetime.py'
+removing 'datetime_format-0.13' (and everything under it)

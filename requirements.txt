@@ -1,0 +1,18 @@
+# runtime requirements
+datetime
+holidays
+tzlocal
+python-dateutil
+
+# test requirements
+pytest
+pytest-cov
+coverage[toml]
+pre-commit
+flake8
+sphinx
+tox
+
+# deployment
+pip>=19.2.3
+wheel>=0.33.6

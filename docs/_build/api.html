@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; holidays  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog" href="changelog.html" />
+    <link rel="prev" title="Contributing" href="contributing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> holidays
+          </a>
+              <div class="version">
+                0.14
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Additional Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">holidays</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="module-holidays.utils">
+<span id="api-reference"></span><h1>API Reference<a class="headerlink" href="#module-holidays.utils" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="holidays.utils.country_holidays">
+<code class="sig-prename descclassname"><span class="pre">holidays.utils.</span></code><code class="sig-name descname"><span class="pre">country_holidays</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">country</span></span></em>, <em><span class="n"><span class="pre">subdiv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">years</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">expand</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em><span class="n"><span class="pre">observed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em><span class="n"><span class="pre">prov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.utils.country_holidays" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a new dictionary-like <code class="xref py py-class docutils literal notranslate"><span class="pre">HolidayBase</span></code> object for the public
+holidays of the country matching <strong>country</strong> and other keyword arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>country</strong> (<em>str</em>) – An ISO 3166-1 Alpha-2 country code.</li>
+<li><strong>subdiv</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The subdivision (e.g. state or province); not implemented for all
+countries (see documentation).</li>
+<li><strong>years</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>int</em><em>, </em><em>Iterable</em><em>[</em><em>int</em><em>]</em><em>]</em><em>]</em>) – The year(s) to pre-calculate public holidays for at instantiation.</li>
+<li><strong>expand</strong> (<em>bool</em>) – Whether the entire year is calculated when one date from that year
+is requested.</li>
+<li><strong>observed</strong> (<em>bool</em>) – Whether to include the dates of when public holiday are observed
+(e.g. a holiday falling on a Sunday being observed the following
+Monday). False may not work for all countries.</li>
+<li><strong>prov</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – <em>deprecated</em> use subdiv instead.</li>
+<li><strong>state</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – <em>deprecated</em> use subdiv instead.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A <code class="xref py py-class docutils literal notranslate"><span class="pre">HolidayBase</span></code> object matching the <strong>country</strong>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#holidays.holiday_base.HolidayBase" title="holidays.holiday_base.HolidayBase"><em>HolidayBase</em></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The key of the <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>-like <code class="xref py py-class docutils literal notranslate"><span class="pre">HolidayBase</span></code> object is the
+<cite>date</cite> of the holiday, and the value is the name of the holiday itself.
+Dates where a key is not present are not public holidays (or, if
+<strong>observed</strong> is False, days when a public holiday is observed).</p>
+<p>When passing the <cite>date</cite> as a key, the <cite>date</cite> can be expressed in one of the
+following types:</p>
+<ul class="simple">
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code>,</li>
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>,</li>
+<li>a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> of any format recognized by <code class="xref py py-func docutils literal notranslate"><span class="pre">dateutil.parser.parse()</span></code>,</li>
+<li>or a <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> representing a POSIX timestamp.</li>
+</ul>
+<p>The key is always returned as a <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code> object.</p>
+<p>To maximize speed, the list of public holidays is built on the fly as
+needed, one calendar year at a time. When the object is instantiated
+without a <strong>years</strong> parameter, it is empty, but, unless <strong>expand</strong> is set
+to False, as soon as a key is accessed the class will calculate that entire
+year’s list of holidays and set the keys with them.</p>
+<p>If you need to list the holidays as opposed to querying individual dates,
+instantiate the class with the <strong>years</strong> parameter.</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">holidays</span> <span class="kn">import</span> <span class="n">country_holidays</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span> <span class="o">=</span> <span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">)</span>
+<span class="go"># For a specific subdivision (e.g. state or province):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calif_holidays</span> <span class="o">=</span> <span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="n">subdiv</span><span class="o">=</span><span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The below will cause 2015 holidays to be calculated on the fly:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">us_holidays</span>
+</pre></div>
+</div>
+<p>This will be faster because 2015 holidays are already calculated:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">us_holidays</span>
+</pre></div>
+</div>
+<p>The <code class="xref py py-class docutils literal notranslate"><span class="pre">HolidayBase</span></code> class also recognizes strings of many formats
+and numbers representing a POSIX timestamp:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="s1">&#39;2014-01-01&#39;</span> <span class="ow">in</span> <span class="n">us_holidays</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="s1">&#39;1/1/2014&#39;</span> <span class="ow">in</span> <span class="n">us_holidays</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="mi">1388597445</span> <span class="ow">in</span> <span class="n">us_holidays</span>
+</pre></div>
+</div>
+<p>Show the holiday’s name:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;2014-01-01&#39;</span><span class="p">)</span>
+<span class="go">&quot;New Year&#39;s Day&quot;</span>
+</pre></div>
+</div>
+<p>Check a range:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span><span class="p">[</span><span class="s1">&#39;2014-01-01&#39;</span><span class="p">:</span> <span class="s1">&#39;2014-01-03&#39;</span><span class="p">]</span>
+<span class="go">[datetime.date(2014, 1, 1)]</span>
+</pre></div>
+</div>
+<p>List all 2020 holidays:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span> <span class="o">=</span> <span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="n">years</span><span class="o">=</span><span class="mi">2020</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">us_holidays</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+<span class="go">(datetime.date(2020, 1, 1), &quot;New Year&#39;s Day&quot;)</span>
+<span class="go">(datetime.date(2020, 1, 20), &#39;Martin Luther King Jr. Day&#39;)</span>
+<span class="go">(datetime.date(2020, 2, 17), &quot;Washington&#39;s Birthday&quot;)</span>
+<span class="go">(datetime.date(2020, 5, 25), &#39;Memorial Day&#39;)</span>
+<span class="go">(datetime.date(2020, 7, 4), &#39;Independence Day&#39;)</span>
+<span class="go">(datetime.date(2020, 7, 3), &#39;Independence Day (Observed)&#39;)</span>
+<span class="go">(datetime.date(2020, 9, 7), &#39;Labor Day&#39;)</span>
+<span class="go">(datetime.date(2020, 10, 12), &#39;Columbus Day&#39;)</span>
+<span class="go">(datetime.date(2020, 11, 11), &#39;Veterans Day&#39;)</span>
+<span class="go">(datetime.date(2020, 11, 26), &#39;Thanksgiving&#39;)</span>
+<span class="go">(datetime.date(2020, 12, 25), &#39;Christmas Day&#39;)</span>
+</pre></div>
+</div>
+<p>Some holidays are only present in parts of a country:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">us_pr_holidays</span> <span class="o">=</span> <span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="n">subdiv</span><span class="o">=</span><span class="s1">&#39;PR&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="s1">&#39;2018-01-06&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">us_holidays</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="s1">&#39;2018-01-06&#39;</span> <span class="ow">in</span> <span class="n">us_pr_holidays</span>
+</pre></div>
+</div>
+<p>Append custom holiday dates by passing one of:</p>
+<ul class="simple">
+<li>a <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> with date/name key/value pairs (e.g.
+<code class="docutils literal notranslate"><span class="pre">{'2010-07-10':</span> <span class="pre">'My</span> <span class="pre">birthday!'}</span></code>),</li>
+<li>a list of dates (as a <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, or <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>); <code class="docutils literal notranslate"><span class="pre">'Holiday'</span></code> will be
+used as a description,</li>
+<li>or a single date item (of one of the types above); <code class="docutils literal notranslate"><span class="pre">'Holiday'</span></code> will be
+used as a description:</li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">custom_holidays</span> <span class="o">=</span> <span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="n">years</span><span class="o">=</span><span class="mi">2015</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_holidays</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;2015-01-01&#39;</span><span class="p">:</span> <span class="s2">&quot;New Year&#39;s Day&quot;</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_holidays</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="s1">&#39;2015-07-01&#39;</span><span class="p">,</span> <span class="s1">&#39;07/04/2015&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_holidays</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">custom_holidays</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">custom_holidays</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="s1">&#39;12/25/2015&#39;</span> <span class="ow">in</span> <span class="n">custom_holidays</span>
+</pre></div>
+</div>
+<p>For more complex logic, like 4th Monday of January, you can inherit the
+<code class="xref py py-class docutils literal notranslate"><span class="pre">HolidayBase</span></code> class and define your own <code class="xref py py-meth docutils literal notranslate"><span class="pre">_populate()</span></code> method.
+See documentation for examples.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="holidays.utils.list_supported_countries">
+<code class="sig-prename descclassname"><span class="pre">holidays.utils.</span></code><code class="sig-name descname"><span class="pre">list_supported_countries</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#holidays.utils.list_supported_countries" title="Permalink to this definition"></a></dt>
+<dd><p>Get all supported countries and their subdivisions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A dictionary where the key is the ISO 3166-1 Alpha-2 country codes and
+the value is a list of supported subdivision codes.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>Dict</em>[<em>str</em>, <em>List</em>[<em>str</em>]]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-holidays.holiday_base"></span><dl class="py class">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><code class="sig-prename descclassname"><span class="pre">holidays.holiday_base.</span></code><code class="sig-name descname"><span class="pre">HolidayBase</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">years</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">expand</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em><span class="n"><span class="pre">observed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em><span class="n"><span class="pre">subdiv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">prov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="n"><span class="pre">state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidayBase" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>A dict-like object containing the holidays for a specific country (and
+province or state if so initiated); inherits the dict class (so behaves
+similarly to a dict). Dates without a key in the Holiday object are not
+holidays.</p>
+<p>The key of the object is the date of the holiday and the value is the name
+of the holiday itself. When passing the date as a key, the date can be
+expressed as one of the following formats:</p>
+<ul class="simple">
+<li>datetime.datetime type;</li>
+<li>datetime.date types;</li>
+<li>a float representing a Unix timestamp;</li>
+<li>or a string of any format (recognized by datetime.parse).</li>
+</ul>
+<p>The key is always returned as a <cite>datetime.date</cite> object.</p>
+<p>To maximize speed, the list of holidays is built as needed on the fly, one
+calendar year at a time. When you instantiate the object, it is empty, but
+the moment a key is accessed it will build that entire year’s list of
+holidays. To prepopulate holidays, instantiate the class with the years
+argument:</p>
+<p>us_holidays = holidays.US(years=2020)</p>
+<p>It is generally instantiated using the <code class="xref py py-func docutils literal notranslate"><span class="pre">country_holidays()</span></code> function.</p>
+<p>The key of the <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>-like <a class="reference internal" href="#holidays.holiday_base.HolidayBase" title="holidays.holiday_base.HolidayBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">HolidayBase</span></code></a> object is the
+<cite>date</cite> of the holiday, and the value is the name of the holiday itself.
+Dates where a key is not present are not public holidays (or, if
+<strong>observed</strong> is False, days when a public holiday is observed).</p>
+<p>When passing the <cite>date</cite> as a key, the <cite>date</cite> can be expressed in one of the
+following types:</p>
+<ul class="simple">
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code>,</li>
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>,</li>
+<li>a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> of any format recognized by <code class="xref py py-func docutils literal notranslate"><span class="pre">dateutil.parser.parse()</span></code>,</li>
+<li>or a <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> representing a POSIX timestamp.</li>
+</ul>
+<p>The key is always returned as a <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code> object.</p>
+<p>To maximize speed, the list of public holidays is built on the fly as
+needed, one calendar year at a time. When the object is instantiated
+without a <strong>years</strong> parameter, it is empty, but, unless <strong>expand</strong> is set
+to False, as soon as a key is accessed the class will calculate that entire
+year’s list of holidays and set the keys with them.</p>
+<p>If you need to list the holidays as opposed to querying individual dates,
+instantiate the class with the <strong>years</strong> parameter.</p>
+<p>Example usage:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">holidays</span> <span class="kn">import</span> <span class="n">country_holidays</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span> <span class="o">=</span> <span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">)</span>
+<span class="go"># For a specific subdivisions (e.g. state or province):</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">calif_holidays</span> <span class="o">=</span> <span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="n">subdiv</span><span class="o">=</span><span class="s1">&#39;CA&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The below will cause 2015 holidays to be calculated on the fly:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">us_holidays</span>
+</pre></div>
+</div>
+<p>This will be faster because 2015 holidays are already calculated:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">us_holidays</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="#holidays.holiday_base.HolidayBase" title="holidays.holiday_base.HolidayBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">HolidayBase</span></code></a> class also recognizes strings of many formats
+and numbers representing a POSIX timestamp:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="s1">&#39;2014-01-01&#39;</span> <span class="ow">in</span> <span class="n">us_holidays</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="s1">&#39;1/1/2014&#39;</span> <span class="ow">in</span> <span class="n">us_holidays</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="mi">1388597445</span> <span class="ow">in</span> <span class="n">us_holidays</span>
+</pre></div>
+</div>
+<p>Show the holiday’s name:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;2014-01-01&#39;</span><span class="p">)</span>
+<span class="go">&quot;New Year&#39;s Day&quot;</span>
+</pre></div>
+</div>
+<p>Check a range:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span><span class="p">[</span><span class="s1">&#39;2014-01-01&#39;</span><span class="p">:</span> <span class="s1">&#39;2014-01-03&#39;</span><span class="p">]</span>
+<span class="go">[datetime.date(2014, 1, 1)]</span>
+</pre></div>
+</div>
+<p>List all 2020 holidays:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">us_holidays</span> <span class="o">=</span> <span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="n">years</span><span class="o">=</span><span class="mi">2020</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">day</span> <span class="ow">in</span> <span class="n">us_holidays</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+<span class="go">(datetime.date(2020, 1, 1), &quot;New Year&#39;s Day&quot;)</span>
+<span class="go">(datetime.date(2020, 1, 20), &#39;Martin Luther King Jr. Day&#39;)</span>
+<span class="go">(datetime.date(2020, 2, 17), &quot;Washington&#39;s Birthday&quot;)</span>
+<span class="go">(datetime.date(2020, 5, 25), &#39;Memorial Day&#39;)</span>
+<span class="go">(datetime.date(2020, 7, 4), &#39;Independence Day&#39;)</span>
+<span class="go">(datetime.date(2020, 7, 3), &#39;Independence Day (Observed)&#39;)</span>
+<span class="go">(datetime.date(2020, 9, 7), &#39;Labor Day&#39;)</span>
+<span class="go">(datetime.date(2020, 10, 12), &#39;Columbus Day&#39;)</span>
+<span class="go">(datetime.date(2020, 11, 11), &#39;Veterans Day&#39;)</span>
+<span class="go">(datetime.date(2020, 11, 26), &#39;Thanksgiving&#39;)</span>
+<span class="go">(datetime.date(2020, 12, 25), &#39;Christmas Day&#39;)</span>
+</pre></div>
+</div>
+<p>Some holidays are only present in parts of a country:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">us_pr_holidays</span> <span class="o">=</span> <span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="n">subdiv</span><span class="o">=</span><span class="s1">&#39;PR&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="s1">&#39;2018-01-06&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">us_holidays</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="s1">&#39;2018-01-06&#39;</span> <span class="ow">in</span> <span class="n">us_pr_holidays</span>
+</pre></div>
+</div>
+<p>Append custom holiday dates by passing one of:</p>
+<ul class="simple">
+<li>a <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> with date/name key/value pairs (e.g.
+<code class="docutils literal notranslate"><span class="pre">{'2010-07-10':</span> <span class="pre">'My</span> <span class="pre">birthday!'}</span></code>),</li>
+<li>a list of dates (as a <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>,
+<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, or <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>); <code class="docutils literal notranslate"><span class="pre">'Holiday'</span></code> will be
+used as a description,</li>
+<li>or a single date item (of one of the types above); <code class="docutils literal notranslate"><span class="pre">'Holiday'</span></code> will be
+used as a description:</li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">custom_holidays</span> <span class="o">=</span> <span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="n">years</span><span class="o">=</span><span class="mi">2015</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_holidays</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;2015-01-01&#39;</span><span class="p">:</span> <span class="s2">&quot;New Year&#39;s Day&quot;</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_holidays</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="s1">&#39;2015-07-01&#39;</span><span class="p">,</span> <span class="s1">&#39;07/04/2015&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">custom_holidays</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">custom_holidays</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">date</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">custom_holidays</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="s1">&#39;12/25/2015&#39;</span> <span class="ow">in</span> <span class="n">custom_holidays</span>
+</pre></div>
+</div>
+<p>For more complex logic, like 4th Monday of January, you can inherit the
+<a class="reference internal" href="#holidays.holiday_base.HolidayBase" title="holidays.holiday_base.HolidayBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">HolidayBase</span></code></a> class and define your own <code class="xref py py-meth docutils literal notranslate"><span class="pre">_populate()</span></code> method.
+See documentation for examples.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>years</strong> (<em>Set</em><em>[</em><em>int</em><em>]</em>) – The year(s) to pre-calculate public holidays for at instantiation.</li>
+<li><strong>subdiv</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – The subdivision (e.g. state or province); not implemented for all
+countries (see documentation).</li>
+<li><strong>prov</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – <em>deprecated</em> use subdiv instead.</li>
+<li><strong>state</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – <em>deprecated</em> use subdiv instead.</li>
+<li><strong>expand</strong> (<em>bool</em>) – Whether the entire year is calculated when one date from that year
+is requested.</li>
+<li><strong>observed</strong> (<em>bool</em>) – Whether to include the dates when public holiday are observed
+(e.g. a holiday falling on a Sunday being observed the
+following Monday). This doesn’t work for all countries.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A <a class="reference internal" href="#holidays.holiday_base.HolidayBase" title="holidays.holiday_base.HolidayBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">HolidayBase</span></code></a> object matching the <strong>country</strong>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>None</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.country">
+<code class="sig-name descname"><span class="pre">country</span></code><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#holidays.holiday_base.HolidayBase.country" title="Permalink to this definition"></a></dt>
+<dd><p>The country’s ISO 3166-1 alpha-2 code.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.subdivisions">
+<code class="sig-name descname"><span class="pre">subdivisions</span></code><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#holidays.holiday_base.HolidayBase.subdivisions" title="Permalink to this definition"></a></dt>
+<dd><p>The subdivisions supported for this country (see documentation).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.observed">
+<code class="sig-name descname"><span class="pre">observed</span></code><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#holidays.holiday_base.HolidayBase.observed" title="Permalink to this definition"></a></dt>
+<dd><p>Whether dates when public holiday are observed are included.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.expand">
+<code class="sig-name descname"><span class="pre">expand</span></code><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#holidays.holiday_base.HolidayBase.expand" title="Permalink to this definition"></a></dt>
+<dd><p>Whether the entire year is calculated when one date from that year
+is requested.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.subdiv">
+<code class="sig-name descname"><span class="pre">subdiv</span></code><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#holidays.holiday_base.HolidayBase.subdiv" title="Permalink to this definition"></a></dt>
+<dd><p>The subdiv requested.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.years">
+<code class="sig-name descname"><span class="pre">years</span></code><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#holidays.holiday_base.HolidayBase.years" title="Permalink to this definition"></a></dt>
+<dd><p>The years calculated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.update">
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidayBase.update" title="Permalink to this definition"></a></dt>
+<dd><p>Update the object, overwriting existing dates.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body"><p class="first">Either another dictionary object where keys are dates and values
+are holiday names, or a single date (or a list of dates) for which
+the value will be set to “Holiday”.</p>
+<p>Dates can be expressed in one or more of the following types:</p>
+<ul class="simple">
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code>,</li>
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>,</li>
+<li>a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> of any format recognized by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">dateutil.parser.parse()</span></code>,</li>
+<li>or a <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> representing a POSIX
+timestamp.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>None</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.append">
+<code class="sig-name descname"><span class="pre">append</span></code><span class="sig-paren">(</span><em><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidayBase.append" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for <a class="reference internal" href="#holidays.holiday_base.HolidayBase.update" title="holidays.holiday_base.HolidayBase.update"><code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code></a> to mimic list type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><em>None</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.get">
+<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">key</span></span></em>, <em><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidayBase.get" title="Permalink to this definition"></a></dt>
+<dd><p>Return the holiday name for a date if date is a holiday, else
+default. If default is not given, it defaults to None, so that this
+method never raises a KeyError. If more than one holiday is present,
+they are separated by a comma.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>key</strong> (<em>Union</em><em>[</em><em>datetime.date</em><em>, </em><em>datetime.datetime</em><em>, </em><em>str</em><em>, </em><em>float</em><em>]</em>) – <p>The date expressed in one of the following types:</p>
+<ul>
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code>,</li>
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>,</li>
+<li>a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> of any format recognized by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">dateutil.parser.parse()</span></code>,</li>
+<li>or a <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> representing a POSIX
+timestamp.</li>
+</ul>
+</li>
+<li><strong>default</strong> (<em>Optional</em><em>[</em><em>Any</em><em>]</em>) – The default value to return if no value is found.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>str</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.get_list">
+<code class="sig-name descname"><span class="pre">get_list</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidayBase.get_list" title="Permalink to this definition"></a></dt>
+<dd><p>Return a list of all holiday names for a date if date is a holiday,
+else empty string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<em>Union</em><em>[</em><em>datetime.date</em><em>, </em><em>datetime.datetime</em><em>, </em><em>str</em><em>, </em><em>float</em><em>]</em>) – <p>The date expressed in one of the following types:</p>
+<ul class="simple">
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code>,</li>
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>,</li>
+<li>a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> of any format recognized by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">dateutil.parser.parse()</span></code>,</li>
+<li>or a <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> representing a POSIX
+timestamp.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>List</em>[<em>str</em>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.get_named">
+<code class="sig-name descname"><span class="pre">get_named</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidayBase.get_named" title="Permalink to this definition"></a></dt>
+<dd><p>Return a list of all holiday dates matching the provided holiday
+name. The match will be made case insensitively and partial matches
+will be included.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>str</em>) – The holiday’s name to try to match.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of all holiday dates matching the provided holiday name.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><em>List</em>[datetime.date]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.pop">
+<code class="sig-name descname"><span class="pre">pop</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">key</span></span></em>, <em><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidayBase.pop" title="Permalink to this definition"></a></dt>
+<dd><p>If date is a holiday, remove it and return its date, else return
+default.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>key</strong> (<em>Union</em><em>[</em><em>datetime.date</em><em>, </em><em>datetime.datetime</em><em>, </em><em>str</em><em>, </em><em>float</em><em>]</em>) – <p>The date expressed in one of the following types:</p>
+<ul>
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code>,</li>
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>,</li>
+<li>a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> of any format recognized by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">dateutil.parser.parse()</span></code>,</li>
+<li>or a <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> representing a POSIX
+timestamp.</li>
+</ul>
+</li>
+<li><strong>default</strong> (<em>Optional</em><em>[</em><em>Any</em><em>]</em>) – The default value to return if no match is found.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The date removed.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raise:</th><td class="field-body"><p class="first">KeyError if date is not a holiday and default is not given.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>Union</em>[<em>str</em>, <em>List</em>[<em>str</em>], <em>List</em>[datetime.date], <em>bool</em>]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.pop_named">
+<code class="sig-name descname"><span class="pre">pop_named</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidayBase.pop_named" title="Permalink to this definition"></a></dt>
+<dd><p>Remove (no longer treat at as holiday) all dates matching the
+provided holiday name. The match will be made case insensitively and
+partial matches will be removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>str</em>) – The holiday’s name to try to match.</li>
+<li><strong>default</strong> – The default value to return if no match is found.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A list of dates removed.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raise:</th><td class="field-body"><p class="first">KeyError if date is not a holiday and default is not given.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>List</em>[datetime.date]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.clear">
+<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None.</span>&#160; <span class="pre">Remove</span> <span class="pre">all</span> <span class="pre">items</span> <span class="pre">from</span> <span class="pre">D.</span></span></span><a class="headerlink" href="#holidays.holiday_base.HolidayBase.clear" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.copy">
+<code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">shallow</span> <span class="pre">copy</span> <span class="pre">of</span> <span class="pre">D</span></span></span><a class="headerlink" href="#holidays.holiday_base.HolidayBase.copy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.fromkeys">
+<code class="sig-name descname"><span class="pre">fromkeys</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidayBase.fromkeys" title="Permalink to this definition"></a></dt>
+<dd><p>Create a new dictionary with keys from iterable and values set to value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.items">
+<code class="sig-name descname"><span class="pre">items</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">items</span></span></span><a class="headerlink" href="#holidays.holiday_base.HolidayBase.items" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.keys">
+<code class="sig-name descname"><span class="pre">keys</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">keys</span></span></span><a class="headerlink" href="#holidays.holiday_base.HolidayBase.keys" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.popitem">
+<code class="sig-name descname"><span class="pre">popitem</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidayBase.popitem" title="Permalink to this definition"></a></dt>
+<dd><p>Remove and return a (key, value) pair as a 2-tuple.</p>
+<p>Pairs are returned in LIFO (last-in, first-out) order.
+Raises KeyError if the dict is empty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.setdefault">
+<code class="sig-name descname"><span class="pre">setdefault</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">key</span></span></em>, <em><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidayBase.setdefault" title="Permalink to this definition"></a></dt>
+<dd><p>Insert key with a value of default if key is not in the dictionary.</p>
+<p>Return the value for key if key is in the dictionary, else default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidayBase.values">
+<code class="sig-name descname"><span class="pre">values</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">an</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">values</span></span></span><a class="headerlink" href="#holidays.holiday_base.HolidayBase.values" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><code class="sig-prename descclassname"><span class="pre">holidays.holiday_base.</span></code><code class="sig-name descname"><span class="pre">HolidaySum</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">h1</span></span></em>, <em><span class="n"><span class="pre">h2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidaySum" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#holidays.holiday_base.HolidayBase" title="holidays.holiday_base.HolidayBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">holidays.holiday_base.HolidayBase</span></code></a></p>
+<p>Returns a <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>-like object resulting from the addition of two or
+more individual dictionaries of public holidays. The original dictionaries
+are available as a <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> in the attribute <code class="xref py py-attr docutils literal notranslate"><span class="pre">holidays,</span></code> and
+<a class="reference internal" href="#holidays.holiday_base.HolidaySum.country" title="holidays.holiday_base.HolidaySum.country"><code class="xref py py-attr docutils literal notranslate"><span class="pre">country</span></code></a> and <a class="reference internal" href="#holidays.holiday_base.HolidaySum.subdiv" title="holidays.holiday_base.HolidaySum.subdiv"><code class="xref py py-attr docutils literal notranslate"><span class="pre">subdiv</span></code></a> attributes are added
+together and could become <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> s. Holiday names, when different,
+are merged. All years are calculated (expanded) for all operands.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>h1</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#holidays.holiday_base.HolidayBase" title="holidays.holiday_base.HolidayBase"><em>HolidayBase</em></a><em>, </em><a class="reference internal" href="#holidays.holiday_base.HolidaySum" title="holidays.holiday_base.HolidaySum"><em>HolidaySum</em></a><em>]</em>) – The first HolidayBase object to add.</li>
+<li><strong>h2</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#holidays.holiday_base.HolidayBase" title="holidays.holiday_base.HolidayBase"><em>HolidayBase</em></a><em>, </em><a class="reference internal" href="#holidays.holiday_base.HolidaySum" title="holidays.holiday_base.HolidaySum"><em>HolidaySum</em></a><em>]</em>) – The other HolidayBase object to add.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>None</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">holidays</span> <span class="kn">import</span> <span class="n">country_holidays</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nafta_holidays</span> <span class="o">=</span> <span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="n">years</span><span class="o">=</span><span class="mi">2020</span><span class="p">)</span> <span class="o">+</span> <span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;CA&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">country_holidays</span><span class="p">(</span><span class="s1">&#39;MX&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dates</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">nafta_holidays</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pprint</span><span class="p">(</span><span class="n">dates</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="mi">72</span><span class="p">)</span>
+<span class="go">[(datetime.date(2020, 1, 1), &quot;Año Nuevo [New Year&#39;s Day]&quot;),</span>
+<span class="go"> (datetime.date(2020, 1, 20), &#39;Martin Luther King Jr. Day&#39;),</span>
+<span class="go"> (datetime.date(2020, 2, 3),</span>
+<span class="go">  &#39;Día de la Constitución [Constitution Day] (Observed)&#39;),</span>
+<span class="go"> (datetime.date(2020, 2, 5),</span>
+<span class="go">  &#39;Día de la Constitución [Constitution Day]&#39;),</span>
+<span class="go"> (datetime.date(2020, 2, 17), &quot;Washington&#39;s Birthday, Family Day&quot;),</span>
+<span class="go"> (datetime.date(2020, 3, 16),</span>
+<span class="go">  &quot;Natalicio de Benito Juárez [Benito Juárez&#39;s birthday] (Observed)&quot;),</span>
+<span class="go"> (datetime.date(2020, 3, 21),</span>
+<span class="go">  &quot;Natalicio de Benito Juárez [Benito Juárez&#39;s birthday]&quot;),</span>
+<span class="go"> (datetime.date(2020, 4, 10), &#39;Good Friday&#39;),</span>
+<span class="go"> (datetime.date(2020, 5, 1), &#39;Día del Trabajo [Labour Day]&#39;),</span>
+<span class="go"> (datetime.date(2020, 5, 18), &#39;Victoria Day&#39;)]</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.append">
+<code class="sig-name descname"><span class="pre">append</span></code><span class="sig-paren">(</span><em><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidaySum.append" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for <a class="reference internal" href="#holidays.holiday_base.HolidaySum.update" title="holidays.holiday_base.HolidaySum.update"><code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code></a> to mimic list type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><em>None</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.clear">
+<code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None.</span>&#160; <span class="pre">Remove</span> <span class="pre">all</span> <span class="pre">items</span> <span class="pre">from</span> <span class="pre">D.</span></span></span><a class="headerlink" href="#holidays.holiday_base.HolidaySum.clear" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.copy">
+<code class="sig-name descname"><span class="pre">copy</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">shallow</span> <span class="pre">copy</span> <span class="pre">of</span> <span class="pre">D</span></span></span><a class="headerlink" href="#holidays.holiday_base.HolidaySum.copy" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.fromkeys">
+<code class="sig-name descname"><span class="pre">fromkeys</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidaySum.fromkeys" title="Permalink to this definition"></a></dt>
+<dd><p>Create a new dictionary with keys from iterable and values set to value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.get">
+<code class="sig-name descname"><span class="pre">get</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">key</span></span></em>, <em><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidaySum.get" title="Permalink to this definition"></a></dt>
+<dd><p>Return the holiday name for a date if date is a holiday, else
+default. If default is not given, it defaults to None, so that this
+method never raises a KeyError. If more than one holiday is present,
+they are separated by a comma.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>key</strong> (<em>Union</em><em>[</em><em>datetime.date</em><em>, </em><em>datetime.datetime</em><em>, </em><em>str</em><em>, </em><em>float</em><em>]</em>) – <p>The date expressed in one of the following types:</p>
+<ul>
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code>,</li>
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>,</li>
+<li>a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> of any format recognized by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">dateutil.parser.parse()</span></code>,</li>
+<li>or a <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> representing a POSIX
+timestamp.</li>
+</ul>
+</li>
+<li><strong>default</strong> (<em>Optional</em><em>[</em><em>Any</em><em>]</em>) – The default value to return if no value is found.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>str</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.get_list">
+<code class="sig-name descname"><span class="pre">get_list</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidaySum.get_list" title="Permalink to this definition"></a></dt>
+<dd><p>Return a list of all holiday names for a date if date is a holiday,
+else empty string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<em>Union</em><em>[</em><em>datetime.date</em><em>, </em><em>datetime.datetime</em><em>, </em><em>str</em><em>, </em><em>float</em><em>]</em>) – <p>The date expressed in one of the following types:</p>
+<ul class="simple">
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code>,</li>
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>,</li>
+<li>a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> of any format recognized by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">dateutil.parser.parse()</span></code>,</li>
+<li>or a <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> representing a POSIX
+timestamp.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><em>List</em>[<em>str</em>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.get_named">
+<code class="sig-name descname"><span class="pre">get_named</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidaySum.get_named" title="Permalink to this definition"></a></dt>
+<dd><p>Return a list of all holiday dates matching the provided holiday
+name. The match will be made case insensitively and partial matches
+will be included.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>str</em>) – The holiday’s name to try to match.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of all holiday dates matching the provided holiday name.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><em>List</em>[datetime.date]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.items">
+<code class="sig-name descname"><span class="pre">items</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">items</span></span></span><a class="headerlink" href="#holidays.holiday_base.HolidaySum.items" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.keys">
+<code class="sig-name descname"><span class="pre">keys</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">a</span> <span class="pre">set-like</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">keys</span></span></span><a class="headerlink" href="#holidays.holiday_base.HolidaySum.keys" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.pop">
+<code class="sig-name descname"><span class="pre">pop</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">key</span></span></em>, <em><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidaySum.pop" title="Permalink to this definition"></a></dt>
+<dd><p>If date is a holiday, remove it and return its date, else return
+default.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>key</strong> (<em>Union</em><em>[</em><em>datetime.date</em><em>, </em><em>datetime.datetime</em><em>, </em><em>str</em><em>, </em><em>float</em><em>]</em>) – <p>The date expressed in one of the following types:</p>
+<ul>
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code>,</li>
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>,</li>
+<li>a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> of any format recognized by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">dateutil.parser.parse()</span></code>,</li>
+<li>or a <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> representing a POSIX
+timestamp.</li>
+</ul>
+</li>
+<li><strong>default</strong> (<em>Optional</em><em>[</em><em>Any</em><em>]</em>) – The default value to return if no match is found.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The date removed.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raise:</th><td class="field-body"><p class="first">KeyError if date is not a holiday and default is not given.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>Union</em>[<em>str</em>, <em>List</em>[<em>str</em>], <em>List</em>[datetime.date], <em>bool</em>]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.pop_named">
+<code class="sig-name descname"><span class="pre">pop_named</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidaySum.pop_named" title="Permalink to this definition"></a></dt>
+<dd><p>Remove (no longer treat at as holiday) all dates matching the
+provided holiday name. The match will be made case insensitively and
+partial matches will be removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>str</em>) – The holiday’s name to try to match.</li>
+<li><strong>default</strong> – The default value to return if no match is found.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A list of dates removed.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raise:</th><td class="field-body"><p class="first">KeyError if date is not a holiday and default is not given.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>List</em>[datetime.date]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.popitem">
+<code class="sig-name descname"><span class="pre">popitem</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidaySum.popitem" title="Permalink to this definition"></a></dt>
+<dd><p>Remove and return a (key, value) pair as a 2-tuple.</p>
+<p>Pairs are returned in LIFO (last-in, first-out) order.
+Raises KeyError if the dict is empty.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.setdefault">
+<code class="sig-name descname"><span class="pre">setdefault</span></code><span class="sig-paren">(</span><em><span class="n"><span class="pre">key</span></span></em>, <em><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidaySum.setdefault" title="Permalink to this definition"></a></dt>
+<dd><p>Insert key with a value of default if key is not in the dictionary.</p>
+<p>Return the value for key if key is in the dictionary, else default.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.subdivisions">
+<code class="sig-name descname"><span class="pre">subdivisions</span></code><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#holidays.holiday_base.HolidaySum.subdivisions" title="Permalink to this definition"></a></dt>
+<dd><p>The subdivisions supported for this country (see documentation).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.update">
+<code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><em><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#holidays.holiday_base.HolidaySum.update" title="Permalink to this definition"></a></dt>
+<dd><p>Update the object, overwriting existing dates.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Param:</th><td class="field-body"><p class="first">Either another dictionary object where keys are dates and values
+are holiday names, or a single date (or a list of dates) for which
+the value will be set to “Holiday”.</p>
+<p>Dates can be expressed in one or more of the following types:</p>
+<ul class="simple">
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.date</span></code>,</li>
+<li><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>,</li>
+<li>a <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> of any format recognized by
+<code class="xref py py-func docutils literal notranslate"><span class="pre">dateutil.parser.parse()</span></code>,</li>
+<li>or a <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> representing a POSIX
+timestamp.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><em>None</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.values">
+<code class="sig-name descname"><span class="pre">values</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">an</span> <span class="pre">object</span> <span class="pre">providing</span> <span class="pre">a</span> <span class="pre">view</span> <span class="pre">on</span> <span class="pre">D's</span> <span class="pre">values</span></span></span><a class="headerlink" href="#holidays.holiday_base.HolidaySum.values" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.expand">
+<code class="sig-name descname"><span class="pre">expand</span></code><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#holidays.holiday_base.HolidaySum.expand" title="Permalink to this definition"></a></dt>
+<dd><p>Whether the entire year is calculated when one date from that year
+is requested.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.observed">
+<code class="sig-name descname"><span class="pre">observed</span></code><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#holidays.holiday_base.HolidaySum.observed" title="Permalink to this definition"></a></dt>
+<dd><p>Whether dates when public holiday are observed are included.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.subdiv">
+<code class="sig-name descname"><span class="pre">subdiv</span></code><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#holidays.holiday_base.HolidaySum.subdiv" title="Permalink to this definition"></a></dt>
+<dd><p>Subdivisions included in the addition.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.years">
+<code class="sig-name descname"><span class="pre">years</span></code><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#holidays.holiday_base.HolidaySum.years" title="Permalink to this definition"></a></dt>
+<dd><p>The years calculated.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.holidays">
+<code class="sig-name descname"><span class="pre">holidays</span></code><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#holidays.holiday_base.HolidayBase" title="holidays.holiday_base.HolidayBase"><span class="pre">HolidayBase</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#holidays.holiday_base.HolidaySum.holidays" title="Permalink to this definition"></a></dt>
+<dd><p>The original HolidayBase objects included in the addition.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="holidays.holiday_base.HolidaySum.country">
+<code class="sig-name descname"><span class="pre">country</span></code><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#holidays.holiday_base.HolidaySum.country" title="Permalink to this definition"></a></dt>
+<dd><p>Countries included in the addition.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="contributing.html" class="btn btn-neutral float-left" title="Contributing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022.
+      <span class="lastupdated">Last updated on Apr 06, 2022.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
