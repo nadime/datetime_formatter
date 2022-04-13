@@ -18,7 +18,8 @@ When contributing with fixes and new features, please start forking/branching
 from the `beta branch`_ to work on the latest code and reduce merging issues.
 
 Contributed PRs_ are required to include valid test coverage **(95% minimum,
-100% whenever possible)** in order to be merged.
+100% whenever possible)** in order to be merged.  Changes without 95% coverage
+will be rejected by ``pre-commit`` hooks.
 
 Thanks a lot for your support.
 
