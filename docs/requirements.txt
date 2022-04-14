@@ -1,6 +1,4 @@
-# pip requirements for building docs (they must include install_requires from setup.cfg)
-convertdate>=2.3.0
-hijri-converter
+# pip requirements for building docs (they must include install_requires from setup.cfg):w!
 attrs
 datetime
 holidays
