@@ -14,7 +14,6 @@ pre-commit
 flake8
 sphinx
 tox
-xml
 
 # deployment
 pip>=19.2.3
