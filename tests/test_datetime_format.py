@@ -121,14 +121,6 @@ def test_dtfmt():
         )
         == "10:00:00"
     )
-    assert (
-        dtfmt(
-            "2005-03-01T05:00:00-05:00",
-            "HHMMSS",
-            "utc",
-        )
-        == "10:00:00"
-    )
 
     test_holiday = {"2007-01-01": "NYD"}
     assert dtfmt(20061229, "DATE-P2B", holidays=test_holiday) == "2007-01-03"
