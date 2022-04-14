@@ -1,32 +1,32 @@
-===============
-datetime_format
-===============
+==================
+datetime_formatter
+==================
 
-``datetime_format`` provides a *DSL (domain-specific language)* for formatting
-``datetimes`` inline to strings.  ``datetime_format`` is also capable of translating
+``datetime_formatter`` provides a *DSL (domain-specific language)* for formatting
+``datetimes`` inline to strings.  ``datetime_formatter`` is also capable of translating
 the ``datetime`` by most intervals, including some that are not supported by
 ``timedelta`` like "business_day" (skip weekends and holidays).
 
 For example (see `Available Output Formats`_ for full details)
 
-Use ``datetime_format`` to format dates effectively, including translations
+Use ``datetime_formatter`` to format dates effectively, including translations
 and holiday/weekend management using easy-to-remember shortcuts
 instead of esoteric ``strftime`` shortcuts, i.e.
 having to memorize that ``%m`` is month, while ``%M"`` is minute.
 For example, use ``YMD`` to refer to a ``YYYYMMDD`` formatting of a date.
 
-``datetime_format`` is especially useful for ingestion of configuration files
+``datetime_formatter`` is especially useful for ingestion of configuration files
 where complicated date logic either has to be handled outside of the file itself,
 making understanding logic harder, or by making all configuration actual
 Python code -- which again makes reading harder and interoperability with
-non-Python much harder or impossible.  ``datetime_format`` allows all of this
+non-Python much harder or impossible.  ``datetime_formatter`` allows all of this
 formatting to be done inline, making configuration files easier to comprehend.
 
-.. image:: https://github.com/nadime/datetime_format/workflows/Tests/badge.svg
+.. image:: https://github.com/nadime/datetime_formatter/workflows/Tests/badge.svg
     :target: actions
 
-.. image:: https://coveralls.io/repos/github/nadime/datetime_format/badge.svg?branch=main
-    :target: https://coveralls.io/repos/github/nadime/datetime_format/badge.svg?branch=main
+.. image:: https://coveralls.io/repos/github/nadime/datetime_formatter/badge.svg?branch=main
+    :target: https://coveralls.io/repos/github/nadime/datetime_formatter/badge.svg?branch=main
 
 .. .. image:: http://img.shields.io/pypi/v/holidays.svg
     :target: https://pypi.python.org/pypi/holidays
@@ -34,8 +34,8 @@ formatting to be done inline, making configuration files easier to comprehend.
 .. image:: https://img.shields.io/badge/license-MIT-black
     :target: LICENSE
 
-.. image:: https://readthedocs.org/projects/datetime_format/badge/?version=latest
-    :target: https://datetime_format.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/datetime_formatter/badge/?version=latest
+    :target: https://datetime_formatter.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
 
@@ -46,13 +46,13 @@ The latest stable version can always be installed or updated via pip:
 
 .. code-block:: bash
 
-    $ pip install --update datetime_format
+    $ pip install --update datetime_formatter
 
 
 Documentation
 -------------
 
-.. _Read the Docs: https://datetime_format.readthedocs.io/
+.. _Read the Docs: https://datetime_formatter.readthedocs.io/
 
 The documentation is hosted on `Read the Docs`_.
 
@@ -63,7 +63,7 @@ Quick Start
 .. code-block:: python3
 
   from datetime import datetime
-  from datetime_format import dtfmt
+  from datetime_formatter import dtfmt
 
   dtfmt(20050301, "YYYYMMDD") == "20050301"  # True
   dtfmt("2005-03-01", "MMDDYY") == "030105"  # True
@@ -334,7 +334,7 @@ The latest development (beta) version can be installed directly from GitHub:
 
 .. code-block:: bash
 
-    $ pip install --upgrade https://github.com/nadime/datetime_format/tarball/beta
+    $ pip install --upgrade https://github.com/nadime/datetime_formatter/tarball/beta
 
 All new features are always first pushed to beta branch, then released on
 master branch upon official version upgrades.
@@ -343,8 +343,8 @@ master branch upon official version upgrades.
 Contributions
 -------------
 
-.. _Issues: https://github.com/nadime/datetime_format/issues
-.. _pull requests: https://github.com/nadime/datetime_format/pulls
+.. _Issues: https://github.com/nadime/datetime_formatter/issues
+.. _pull requests: https://github.com/nadime/datetime_formatter/pulls
 .. _here: CONTRIBUTING.rst
 
 Issues_ and `pull requests`_ are always welcome.  Please see

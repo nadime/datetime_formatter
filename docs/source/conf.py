@@ -25,14 +25,14 @@ from sphinx.writers.html import HTMLTranslator
 import sphinx_rtd_theme  # noqa: F401 'sphinx_rtd_theme' imported but unused
 
 sys.path.insert(0, os.path.abspath("../.."))
-import datetime_format  # noqa: E402 module level import not at top of file
+import datetime_formatter  # noqa: E402 module level import not at top of file
 
 # -- Project information -----------------------------------------------------
 
 project = "datetime_format"
 copyright = str(date.today().year)
 author = "nadime"
-version = datetime_format.__version__
+version = datetime_formatter.__version__
 
 
 # -- General configuration ---------------------------------------------------

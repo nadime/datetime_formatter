@@ -1,6 +1,6 @@
 import pytest
 
-from datetime_format.__datetime import (
+from datetime_formatter.__datetime import (
     _int_to_date,
     _string_to_date,
     _check_date,

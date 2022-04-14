@@ -20,7 +20,7 @@ exclude = '''
 branch = true
 omit = [
   'setup.py',
-  'datetime_format/__init__.py',
+  'datetime_formatter/__init__.py',
   'tests/*',
   'tests.py',
 # comment the above line if you want to see if all tests did run

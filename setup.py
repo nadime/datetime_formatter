@@ -1,5 +1,5 @@
-#  datetime_format
-#  ---------------
+#  datetime_formatter
+#  ------------------
 #  A niche module that provides ways to format and translate datetimes
 #  within strings, without having to remember
 #

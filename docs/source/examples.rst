@@ -8,7 +8,7 @@ Simplest example possible
 .. code-block:: python
 
    >>> from datetime import date, datetime, time
-   >>> from datetime_format import dtfmt, DateTimeFormatter
+   >>> from datetime_formatter import dtfmt, DateTimeFormatter
    >>> from dateutil.tz import gettz
    >>> import holidays
    >>>
@@ -24,7 +24,7 @@ Here is a code-built list of all of the possible output formats:
 
 .. code-block:: python
 
-   >>> from datetime_format.__formats import _SUPPORTED_DATETIME_OUTPUT_FORMATS
+   >>> from datetime_formatter.__formats import _SUPPORTED_DATETIME_OUTPUT_FORMATS
    >>>
    >>> dt = datetime(2022, 4, 12, 9, 30, 0, 0, tzinfo=gettz("EDT"))
    >>> for k in _SUPPORTED_DATETIME_OUTPUT_FORMATS.keys():
@@ -98,7 +98,7 @@ All possible translations:
 
 .. code-block:: python
 
-  >>> from datetime_format.__formats import (
+  >>> from datetime_formatter.__formats import (
   ...     _SUPPORTED_TRANSLATION_DIRECTIONS,
   ...     _SUPPORTED_TRANSLATION_SIZES,
   ... )
