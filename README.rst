@@ -63,7 +63,7 @@ Quick Start
 
 .. code-block:: python3
 
- from datetime import datetime
+  from datetime import datetime
   from datetime_format import dtfmt
 
   dtfmt(20050301, "YYYYMMDD") == "20050301"  # True
@@ -76,14 +76,14 @@ you can instantiate a ``DateTimeFormatter`` object and use its ``.format`` metho
 
 .. code-block:: python3
 
- dtf = DateTimeFormatter(datetime(2005, 3, 1))
+  dtf = DateTimeFormatter(datetime(2005, 3, 1))
   dtf.format("%YYYYMMDD%") == "20050301"
 
 You can also translate dates and/or times using inline translation syntax, e.g.:
 
 .. code-block:: python3
 
- dtfmt(20050301, "YMD-M1D") == "20050228"
+  dtfmt(20050301, "YMD-M1D") == "20050228"
   dtfmt(20050301, "YMD-M1Y") == "20040301"
   dtfmt("20050301 08:30:00", "DATETIME-P1H") == "2005-03-01 09:30:00"
 
@@ -92,7 +92,7 @@ your ``datetime`` object is not timezone-naive.
 
 .. code-block:: python3
 
- from dateutil import tz
+  from dateutil import tz
 
   utc = tz.gettz("UTC")
   est = tz.gettz("EST")
@@ -106,7 +106,7 @@ translation size.
 
 .. code-block:: python3
 
- import holidays
+  import holidays
   dtfmt(20061229, "DATE-P2B", holidays=holidays.US()) == "2007-01-03"
 
 
@@ -324,7 +324,7 @@ You can string together any combination of these three translation parts, e.g.:
 
 .. code-block:: python
 
- dtfmt(20050301, "YMD-M1B")      # 20050301 minus 2 business days (20050225)
+  dtfmt(20050301, "YMD-M1B")      # 20050301 minus 2 business days (20050225)
   dtfmt(20050301, "YMD-P1Y")      # 20050301 plus 1 year (20060301)
   dtfmt(20050301, "DATETIME-P1H") # 20050301 00:00:00 plus 1 hour: (2005-03-01 01:00:00)
 
