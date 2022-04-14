@@ -26,17 +26,17 @@ formatting to be done inline, making configuration files easier to comprehend.
 .. image:: https://github.com/nadime/datetime_format/workflows/Tests/badge.svg
     :target: actions
 
-.. image:: http://img.shields.io/coveralls/dr-prodigy/python-holidays/master
-    :target: https://coveralls.io/r/dr-prodigy/python-holidays
+.. image:: https://coveralls.io/repos/github/nadime/datetime_format/badge.csv?branch=main
+    :target: https://coveralls.io/repos/github/nadime/datetime_format/badge.csv?branch=main
 
-.. image:: http://img.shields.io/pypi/v/holidays.svg
+.. .. image:: http://img.shields.io/pypi/v/holidays.svg
     :target: https://pypi.python.org/pypi/holidays
 
-.. image:: http://img.shields.io/pypi/l/holidays.svg
+.. image:: https://img.shields.io/badge/license-MIT-black
     :target: LICENSE
 
-.. image:: https://readthedocs.org/projects/python-holidays/badge/?version=latest
-    :target: https://python-holidays.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/datetime_format/badge/?version=latest
+    :target: https://datetime_format.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
 
