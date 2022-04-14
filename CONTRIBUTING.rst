@@ -2,10 +2,10 @@
 Contributing
 ============
 
-.. _prs: https://github.com/dr-prodigy/python-holidays/pulls
-.. _`beta branch`: https://github.com/nadime/datetime_format/tree/beta
-.. |contributors| image:: https://img.shields.io/github/contributors/dr-prodigy/python-holidays
-    :target: https://www.github.com/nadime/datetime_format
+.. _prs: https://github.com/nadime/datetime_formatter/pulls
+.. _`beta branch`: https://github.com/nadime/datetime_formatter/tree/beta
+.. |contributors| image:: https://img.shields.io/github/contributors/nadime/datetime_formatter
+    :target: https://www.github.com/nadime/datetime_formatter
     :alt: contributors
 
 |contributors|
@@ -17,8 +17,9 @@ Basics
 When contributing with fixes and new features, please start forking/branching
 from the `beta branch`_ to work on the latest code and reduce merging issues.
 
-Contributed PRs_ are required to include valid test coverage **(95% minimum,
-100% whenever possible)** in order to be merged.
+Contributed PRs_ are required to include valid test coverage **(99% minimum,
+100% whenever possible)** in order to be merged.  Changes without 99% coverage
+overall will be rejected by ``pre-commit`` hooks.
 
 Thanks a lot for your support.
 
@@ -48,7 +49,7 @@ Alternatively, you can run pytest to run tests and coverage:
 In addition to pytest, you need to ensure that all staged files are up to
 standard.
 
-.. _pre-commit: https://github.com/nadime/datetime_format/issues
+.. _pre-commit: https://github.com/nadime/datetime_formatter/issues
 
 Install `pre-commit`_ and its git hook script so that the quality assurance
 tests will run on all staged files before they are committed:
@@ -68,7 +69,7 @@ To manually run the quality assurance tests on all tracked files:
 Build sphinx documentation
 --------------------------
 
-.. _readthedocs.io: https://datetime_format.readthedocs.io/
+.. _readthedocs.io: https://datetime_formatter.readthedocs.io/
 
 The project provides a Sphinx documentation source under ``./docs/source``,
 published online on `readthedocs.io`_.

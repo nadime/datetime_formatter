@@ -1,6 +1,6 @@
 API Reference
 ================
 
-.. autofunction:: datetime_format.dtfmt
-.. autofunction:: datetime_format.dtformat
-.. autoclass:: datetime_format.DateTimeFormatter
+.. autofunction:: datetime_formatter.dtfmt
+.. autofunction:: datetime_formatter.dtformat
+.. autoclass:: datetime_formatter.DateTimeFormatter

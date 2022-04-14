@@ -3,7 +3,7 @@ import datetime  # type: ignore
 from dateutil.relativedelta import relativedelta as rd  # type: ignore
 import holidays
 
-from datetime_format.__datetime import (
+from datetime_formatter.__datetime import (
     _int_to_datetime,
     _string_to_datetime,
     _DateTime,

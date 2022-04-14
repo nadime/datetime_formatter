@@ -1,42 +1,41 @@
-===============
-datetime_format
-===============
+==================
+datetime_formatter
+==================
 
-``datetime_format`` provides a *DSL (domain-specific language)* for formatting
-``datetimes`` inline to strings.  ``datetime_format`` is also capable of translating
+``datetime_formatter`` provides a *DSL (domain-specific language)* for formatting
+``datetimes`` inline to strings.  ``datetime_formatter`` is also capable of translating
 the ``datetime`` by most intervals, including some that are not supported by
 ``timedelta`` like "business_day" (skip weekends and holidays).
 
 For example (see `Available Output Formats`_ for full details)
 
-Use ``datetime_format`` to format dates effectively, including translations
+Use ``datetime_formatter`` to format dates effectively, including translations
 and holiday/weekend management using easy-to-remember shortcuts
 instead of esoteric ``strftime`` shortcuts, i.e.
 having to memorize that ``%m`` is month, while ``%M"`` is minute.
 For example, use ``YMD`` to refer to a ``YYYYMMDD`` formatting of a date.
 
-``datetime_format`` is especially useful for ingestion of configuration files
+``datetime_formatter`` is especially useful for ingestion of configuration files
 where complicated date logic either has to be handled outside of the file itself,
 making understanding logic harder, or by making all configuration actual
 Python code -- which again makes reading harder and interoperability with
-non-Python much harder or impossible.  ``datetime_format`` allows all of this
+non-Python much harder or impossible.  ``datetime_formatter`` allows all of this
 formatting to be done inline, making configuration files easier to comprehend.
 
-
-.. image:: https://github.com/nadime/datetime_format/workflows/Tests/badge.svg
+.. image:: https://github.com/nadime/datetime_formatter/workflows/Tests/badge.svg
     :target: actions
 
-.. image:: http://img.shields.io/coveralls/dr-prodigy/python-holidays/master
-    :target: https://coveralls.io/r/dr-prodigy/python-holidays
+.. image:: https://coveralls.io/repos/github/nadime/datetime_formatter/badge.svg?branch=main
+    :target: https://coveralls.io/repos/github/nadime/datetime_formatter/badge.svg?branch=main
 
-.. image:: http://img.shields.io/pypi/v/holidays.svg
+.. .. image:: http://img.shields.io/pypi/v/holidays.svg
     :target: https://pypi.python.org/pypi/holidays
 
-.. image:: http://img.shields.io/pypi/l/holidays.svg
+.. image:: https://img.shields.io/badge/license-MIT-black
     :target: LICENSE
 
-.. image:: https://readthedocs.org/projects/python-holidays/badge/?version=latest
-    :target: https://python-holidays.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/datetime_formatter/badge/?version=latest
+    :target: https://datetime_formatter.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
 
@@ -47,13 +46,13 @@ The latest stable version can always be installed or updated via pip:
 
 .. code-block:: bash
 
-    $ pip install --update datetime_format
+    $ pip install --update datetime_formatter
 
 
 Documentation
 -------------
 
-.. _Read the Docs: https://datetime_format.readthedocs.io/
+.. _Read the Docs: https://datetime_formatter.readthedocs.io/
 
 The documentation is hosted on `Read the Docs`_.
 
@@ -63,8 +62,8 @@ Quick Start
 
 .. code-block:: python3
 
- from datetime import datetime
-  from datetime_format import dtfmt
+  from datetime import datetime
+  from datetime_formatter import dtfmt
 
   dtfmt(20050301, "YYYYMMDD") == "20050301"  # True
   dtfmt("2005-03-01", "MMDDYY") == "030105"  # True
@@ -76,14 +75,14 @@ you can instantiate a ``DateTimeFormatter`` object and use its ``.format`` metho
 
 .. code-block:: python3
 
- dtf = DateTimeFormatter(datetime(2005, 3, 1))
+  dtf = DateTimeFormatter(datetime(2005, 3, 1))
   dtf.format("%YYYYMMDD%") == "20050301"
 
 You can also translate dates and/or times using inline translation syntax, e.g.:
 
 .. code-block:: python3
 
- dtfmt(20050301, "YMD-M1D") == "20050228"
+  dtfmt(20050301, "YMD-M1D") == "20050228"
   dtfmt(20050301, "YMD-M1Y") == "20040301"
   dtfmt("20050301 08:30:00", "DATETIME-P1H") == "2005-03-01 09:30:00"
 
@@ -92,7 +91,7 @@ your ``datetime`` object is not timezone-naive.
 
 .. code-block:: python3
 
- from dateutil import tz
+  from dateutil import tz
 
   utc = tz.gettz("UTC")
   est = tz.gettz("EST")
@@ -106,7 +105,7 @@ translation size.
 
 .. code-block:: python3
 
- import holidays
+  import holidays
   dtfmt(20061229, "DATE-P2B", holidays=holidays.US()) == "2007-01-03"
 
 
@@ -324,7 +323,7 @@ You can string together any combination of these three translation parts, e.g.:
 
 .. code-block:: python
 
- dtfmt(20050301, "YMD-M1B")      # 20050301 minus 2 business days (20050225)
+  dtfmt(20050301, "YMD-M1B")      # 20050301 minus 2 business days (20050225)
   dtfmt(20050301, "YMD-P1Y")      # 20050301 plus 1 year (20060301)
   dtfmt(20050301, "DATETIME-P1H") # 20050301 00:00:00 plus 1 hour: (2005-03-01 01:00:00)
 
@@ -335,7 +334,7 @@ The latest development (beta) version can be installed directly from GitHub:
 
 .. code-block:: bash
 
-    $ pip install --upgrade https://github.com/nadime/datetime_format/tarball/beta
+    $ pip install --upgrade https://github.com/nadime/datetime_formatter/tarball/beta
 
 All new features are always first pushed to beta branch, then released on
 master branch upon official version upgrades.
@@ -344,8 +343,8 @@ master branch upon official version upgrades.
 Contributions
 -------------
 
-.. _Issues: https://github.com/nadime/datetime_format/issues
-.. _pull requests: https://github.com/nadime/datetime_format/pulls
+.. _Issues: https://github.com/nadime/datetime_formatter/issues
+.. _pull requests: https://github.com/nadime/datetime_formatter/pulls
 .. _here: CONTRIBUTING.rst
 
 Issues_ and `pull requests`_ are always welcome.  Please see

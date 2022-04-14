@@ -2,7 +2,7 @@ import pytest
 
 from datetime import date, datetime, timezone  # type: ignore
 
-from datetime_format import (
+from datetime_formatter import (
     dtfmt,
     dtformat,
     DateTimeFormatter,
@@ -10,7 +10,7 @@ from datetime_format import (
     DateTimeFormatFieldError,
     DateTimeFormatTranslationError,
 )
-from datetime_format.__formats import _SUPPORTED_DATETIME_OUTPUT_FORMATS
+from datetime_formatter.__formats import _SUPPORTED_DATETIME_OUTPUT_FORMATS
 
 import holidays
 
@@ -125,7 +125,7 @@ def test_dtfmt():
         dtfmt(
             "2005-03-01T05:00:00-05:00",
             "HHMMSS",
-            "utc",
+            "UTC",
         )
         == "10:00:00"
     )
