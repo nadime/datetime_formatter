@@ -26,8 +26,8 @@ formatting to be done inline, making configuration files easier to comprehend.
 .. image:: https://github.com/nadime/datetime_format/workflows/Tests/badge.svg
     :target: actions
 
-.. image:: https://coveralls.io/repos/github/nadime/datetime_format/badge.csv?branch=main
-    :target: https://coveralls.io/repos/github/nadime/datetime_format/badge.csv?branch=main
+.. image:: https://coveralls.io/repos/github/nadime/datetime_format/badge.svg?branch=main
+    :target: https://coveralls.io/repos/github/nadime/datetime_format/badge.svg?branch=main
 
 .. .. image:: http://img.shields.io/pypi/v/holidays.svg
     :target: https://pypi.python.org/pypi/holidays
