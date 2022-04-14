@@ -37,7 +37,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: TestDateUtil
       run: |
-	python -c "import dateutil.tz; x = dateutil.tz.gettz('utc'); print(x)"
+	      python -c "import dateutil.tz; x = dateutil.tz.gettz('utc'); print(x)"
     - name: Test with pytest
       run: |
         pytest
