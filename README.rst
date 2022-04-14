@@ -22,7 +22,6 @@ Python code -- which again makes reading harder and interoperability with
 non-Python much harder or impossible.  ``datetime_format`` allows all of this
 formatting to be done inline, making configuration files easier to comprehend.
 
-
 .. image:: https://github.com/nadime/datetime_format/workflows/Tests/badge.svg
     :target: actions
 
